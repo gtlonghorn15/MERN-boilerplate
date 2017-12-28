@@ -7,9 +7,9 @@ class Stars extends Component {
         super();
 
         this.state = {
-            roomRating: 0
-			customerServiceRating: 0
-			immersionRating: 0
+            roomRating: 0,
+			customerServiceRating: 0,
+			immersionRating: 0,
 			puzzleQualityRating: 0
         };
     }
