@@ -7,11 +7,11 @@ class Stars extends Component {
       super();
 
       this.state = {
-         rating: 0
-         //roomRating: 0,
-			//customerServiceRating: 0,
-			//immersionRating: 0,
-			//puzzleQualityRating: 0
+         //rating: 0
+         roomRating: 0,
+			customerServiceRating: 0,
+			immersionRating: 0,
+			puzzleQualityRating: 0
       };
    }
 
@@ -19,47 +19,47 @@ class Stars extends Component {
 		//var newState = {};
 		//newState[e.target.name] = e.target.nextValue;
 		//this.setState(newState);
-      this.setState({rating: nextValue});
+      this.setState({this.state[name]: nextValue});
    }
 
    render() {
-      //const { roomRating, customerServiceRating, immersionRating, puzzleQualityRating } = this.state;
-      const { rating } = this.state;
+      const { roomRating, customerServiceRating, immersionRating, puzzleQualityRating } = this.state;
+      //const { rating } = this.state;
       return (                
          <div>
 				<div>
-					<h2>Room Rating: {this.state.rating}</h2>
+					<h2>Room Rating: {this.state.roomRating}</h2>
 					<StarRatingComponent 
 						name="roomrank" 
 						starCount={10}
-						value={this.state.rating}
+						value={this.state.roomRating}
 						onStarClick={this.onStarClick.bind(this)}
 					/>
 				</div>
 				<div>
-					<h2>Customer Service Rating: {this.state.rating}</h2>
+					<h2>Customer Service Rating: {this.state.customerServiceRating}</h2>
 					<StarRatingComponent 
 						name="customerservicerank" 
 						starCount={3}
-						value={this.state.rating}
+						value={this.state.customerServiceRating}
 						onStarClick={this.onStarClick.bind(this)}
 					/>
 				</div>
 				<div>
-					<h2>Immersion Rating: {this.state.rating}</h2>
+					<h2>Immersion Rating: {this.state.immersionRating}</h2>
 					<StarRatingComponent 
 						name="immersionrank" 
 						starCount={3}
-						value={this.state.rating}
+						value={this.state.immersionRating}
 						onStarClick={this.onStarClick.bind(this)}
 					/>
 				</div>
 				<div>
-					<h2>Puzzle Quality Rating: {this.state.rating}</h2>
+					<h2>Puzzle Quality Rating: {this.state.puzzleQualityRating}</h2>
 					<StarRatingComponent 
 						name="puzzlequalityrank" 
 						starCount={3}
-						value={this.state.rating}
+						value={this.state.puzzleQualityRating}
 						onStarClick={this.onStarClick.bind(this)}
 					/>
 				</div>
