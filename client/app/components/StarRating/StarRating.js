@@ -1,3 +1,12 @@
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
+
+// Import Style
+import styles from './StarRating.css';
+
+// Import Images
+//import bg from '../../header-bk.png';
+
 $(document).ready(function(){
   
   /* 1. Visualizing things on Hover - See next part for action on click */
