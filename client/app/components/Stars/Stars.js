@@ -19,41 +19,43 @@ class Stars extends Component {
         const { rating } = this.state;
         return (                
             <div>
-                <h2>Room Rating: {rating}</h2>
-                <StarRatingComponent 
-                    name="roomrank" 
-                    starCount={10}
-                    value={rating}
-                    onStarClick={this.onStarClick.bind(this)}
-                />
-            </div>
-			<div>
-                <h2>Customer Service Rating: {rating}</h2>
-                <StarRatingComponent 
-                    name="customerservicerank" 
-                    starCount={3}
-                    value={rating}
-                    onStarClick={this.onStarClick.bind(this)}
-                />
-            </div>
-			<div>
-                <h2>Immersion Rating: {rating}</h2>
-                <StarRatingComponent 
-                    name="immersionrank" 
-                    starCount={3}
-                    value={rating}
-                    onStarClick={this.onStarClick.bind(this)}
-                />
-            </div>
-			<div>
-                <h2>Puzzle Quality Rating: {rating}</h2>
-                <StarRatingComponent 
-                    name="puzzlequalityrank" 
-                    starCount={3}
-                    value={rating}
-                    onStarClick={this.onStarClick.bind(this)}
-                />
-            </div>
+				<div>
+					<h2>Room Rating: {rating}</h2>
+					<StarRatingComponent 
+						name="roomrank" 
+						starCount={10}
+						value={rating}
+						onStarClick={this.onStarClick.bind(this)}
+					/>
+				</div>
+				<div>
+					<h2>Customer Service Rating: {rating}</h2>
+					<StarRatingComponent 
+						name="customerservicerank" 
+						starCount={3}
+						value={rating}
+						onStarClick={this.onStarClick.bind(this)}
+					/>
+				</div>
+				<div>
+					<h2>Immersion Rating: {rating}</h2>
+					<StarRatingComponent 
+						name="immersionrank" 
+						starCount={3}
+						value={rating}
+						onStarClick={this.onStarClick.bind(this)}
+					/>
+				</div>
+				<div>
+					<h2>Puzzle Quality Rating: {rating}</h2>
+					<StarRatingComponent 
+						name="puzzlequalityrank" 
+						starCount={3}
+						value={rating}
+						onStarClick={this.onStarClick.bind(this)}
+					/>
+				</div>
+			</div>
         );
     }
 }
