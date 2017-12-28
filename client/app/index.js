@@ -15,7 +15,7 @@ import Home from './components/Home/Home';
 
 import HelloWorld from './components/HelloWorld/HelloWorld';
 
-import StarRating from './components/Stars/Stars';
+import Stars from './components/Stars/Stars';
 
 import './styles/styles.scss';
 
