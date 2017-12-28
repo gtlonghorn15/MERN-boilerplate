@@ -25,7 +25,7 @@ render((
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/helloworld" component={HelloWorld}/>
-		<Route path="/starrating" compoenent={StarRating}/>
+		<Route path="/starrating" component={StarRating}/>
         <Route component={NotFound}/>
       </Switch>
     </App>
