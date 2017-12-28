@@ -7,7 +7,10 @@ class Stars extends Component {
         super();
 
         this.state = {
-            rating: 1
+            roomRating: 0
+			customerServiceRating: 0
+			immersionRating: 0
+			puzzleQualityRating: 0
         };
     }
 
@@ -16,42 +19,45 @@ class Stars extends Component {
     }
 
     render() {
-        const { rating } = this.state;
+        const { roomRating } = this.state;
+		const { customerServiceRating } = this.state;
+		const { immersionRating } = this.state;
+		const { puzzleQualityRating } = this.state;
         return (                
             <div>
 				<div>
-					<h2>Room Rating: {rating}</h2>
+					<h2>Room Rating: {roomRating}</h2>
 					<StarRatingComponent 
 						name="roomrank" 
 						starCount={10}
-						value={rating}
+						value={roomRating}
 						onStarClick={this.onStarClick.bind(this)}
 					/>
 				</div>
 				<div>
-					<h2>Customer Service Rating: {rating}</h2>
+					<h2>Customer Service Rating: {customerServiceRating}</h2>
 					<StarRatingComponent 
 						name="customerservicerank" 
 						starCount={3}
-						value={rating}
+						value={customerServiceRating}
 						onStarClick={this.onStarClick.bind(this)}
 					/>
 				</div>
 				<div>
-					<h2>Immersion Rating: {rating}</h2>
+					<h2>Immersion Rating: {immersionRating}</h2>
 					<StarRatingComponent 
 						name="immersionrank" 
 						starCount={3}
-						value={rating}
+						value={immersionRating}
 						onStarClick={this.onStarClick.bind(this)}
 					/>
 				</div>
 				<div>
-					<h2>Puzzle Quality Rating: {rating}</h2>
+					<h2>Puzzle Quality Rating: {puzzleQualityRating}</h2>
 					<StarRatingComponent 
 						name="puzzlequalityrank" 
 						starCount={3}
-						value={rating}
+						value={puzzleQualityRating}
 						onStarClick={this.onStarClick.bind(this)}
 					/>
 				</div>
