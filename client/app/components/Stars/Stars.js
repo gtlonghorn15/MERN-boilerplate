@@ -36,4 +36,4 @@ ReactDOM.render(
     document.getElementById('app')
 );
 
-export default Stars;
+//export default Stars;
