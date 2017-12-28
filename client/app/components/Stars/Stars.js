@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
+//import ReactDOM from 'react-dom';
 import StarRatingComponent from 'react-star-rating-component';
 
-class Stars extends React.Component {
+class Stars extends Component {
     constructor() {
         super();
 
@@ -31,9 +31,10 @@ class Stars extends React.Component {
     }
 }
 
+/*
 ReactDOM.render(
     <App />, 
     document.getElementById('app')
-);
+);*/
 
-//export default Stars;
+export default Stars;
