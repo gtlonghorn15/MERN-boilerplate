@@ -3,28 +3,31 @@ import React, { Component } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 
 class Stars extends Component {
-    constructor() {
-        super();
+   constructor() {
+      super();
 
-        this.state = {
-            roomRating: 0,
+      this.state = {
+         roomRating: 0,
 			customerServiceRating: 0,
 			immersionRating: 0,
 			puzzleQualityRating: 0
-        };
-    }
+      };
+   }
 
-    onStarClick(nextValue, prevValue, name) {
-        this.setState({rating: nextValue});
-    }
+   onStarClick(nextValue, prevValue, name) {
+		var newState = {};
+		newState[e.target.name] = e.target.nextValue;
+		this.setState(newState);
+      //this.setState({rating: nextValue});
+   }
 
-    render() {
-        const { roomRating } = this.state;
+   render() {
+      const { roomRating } = this.state;
 		const { customerServiceRating } = this.state;
 		const { immersionRating } = this.state;
 		const { puzzleQualityRating } = this.state;
-        return (                
-            <div>
+      return (                
+         <div>
 				<div>
 					<h2>Room Rating: {roomRating}</h2>
 					<StarRatingComponent 
@@ -62,14 +65,14 @@ class Stars extends Component {
 					/>
 				</div>
 			</div>
-        );
-    }
+      );
+   }
 }
 
 /*
 ReactDOM.render(
-    <App />, 
-    document.getElementById('app')
+   <App />, 
+   document.getElementById('app')
 );*/
 
 export default Stars;
