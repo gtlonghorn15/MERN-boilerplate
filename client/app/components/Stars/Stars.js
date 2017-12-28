@@ -15,11 +15,20 @@ class Stars extends Component {
       };
    }
 
-   onStarClick(nextValue, prevValue, name) {
-		//var newState = {};
-		//newState[e.target.name] = e.target.nextValue;
-		//this.setState(newState);
+   onStarClickRoom(nextValue, prevValue, name) {
       this.setState({roomRating: nextValue});
+   }
+   
+   onStarClickCustomer(nextValue, prevValue, name) {
+      this.setState({customerServiceRating: nextValue});
+   }
+   
+   onStarClickImmersion(nextValue, prevValue, name) {
+      this.setState({immersionRating: nextValue});
+   }
+   
+   onStarClickPuzzle(nextValue, prevValue, name) {
+      this.setState({puzzleQualityRating: nextValue});
    }
 
    render() {
@@ -33,7 +42,7 @@ class Stars extends Component {
 						name="roomrank" 
 						starCount={10}
 						value={this.state.roomRating}
-						onStarClick={this.onStarClick.bind(this)}
+						onStarClick={this.onStarClickRoom.bind(this)}
 					/>
 				</div>
 				<div>
@@ -42,7 +51,7 @@ class Stars extends Component {
 						name="customerservicerank" 
 						starCount={3}
 						value={this.state.customerServiceRating}
-						onStarClick={this.onStarClick.bind(this)}
+						onStarClick={this.onStarClickCustomer.bind(this)}
 					/>
 				</div>
 				<div>
@@ -51,7 +60,7 @@ class Stars extends Component {
 						name="immersionrank" 
 						starCount={3}
 						value={this.state.immersionRating}
-						onStarClick={this.onStarClick.bind(this)}
+						onStarClick={this.onStarClickImmersion.bind(this)}
 					/>
 				</div>
 				<div>
@@ -60,7 +69,7 @@ class Stars extends Component {
 						name="puzzlequalityrank" 
 						starCount={3}
 						value={this.state.puzzleQualityRating}
-						onStarClick={this.onStarClick.bind(this)}
+						onStarClick={this.onStarClickPuzzle.bind(this)}
 					/>
 				</div>
 			</div>
