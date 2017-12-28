@@ -5,9 +5,16 @@ import { Link } from 'react-router-dom';
 const Header = () => (
    <header>
       <Link to="/">Home</Link>
-      <Link to="/helloworld">Hello World</Link>
-      <Link to="/stars">Stars</Link>
-      <Link to="/textbox">TextBox</Link>
+
+      <nav>
+         <Link to="/helloworld">Hello World</Link>
+      </nav>
+      <nav>
+         <Link to="/stars">Stars</Link>
+      </nav>
+      <nav>
+         <Link to="/textbox">TextBox</Link>
+      </nav>
 
       <hr />
    </header>
