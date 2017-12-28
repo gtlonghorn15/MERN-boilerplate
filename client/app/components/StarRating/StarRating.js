@@ -2,7 +2,7 @@ import React from 'react';
 //import { FormattedMessage } from 'react-intl';
 
 // Import Style
-//import styles from './StarRating.css';
+import './StarRating.css';
 
 // Import Images
 //import bg from '../../header-bk.png';
