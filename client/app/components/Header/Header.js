@@ -8,7 +8,7 @@ const Header = () => (
 
     <nav>
       <Link to="/helloworld">Hello World</Link>
-	  <Link to="/starrating">Star Rating</Link>
+	  <Link to="/stars">Stars</Link>
     </nav>
 
     <hr />

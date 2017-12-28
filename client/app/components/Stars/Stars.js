@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import StarRating from 'react-native-star-rating';
  
-class GeneralStarExample extends Component {
+class Stars extends Component {
  
   constructor(props) {
     super(props);
@@ -33,4 +33,4 @@ class GeneralStarExample extends Component {
   }
 }
  
-export default GeneralStarExample
+export default Stars
