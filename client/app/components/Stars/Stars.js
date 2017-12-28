@@ -22,10 +22,7 @@ class Stars extends Component {
    }
 
    render() {
-      const { roomRating } = this.state;
-		const { customerServiceRating } = this.state;
-		const { immersionRating } = this.state;
-		const { puzzleQualityRating } = this.state;
+      const { roomRating, customerServiceRating, immersionRating, puzzleQualityRating } = this.state;
       return (                
          <div>
 				<div>
