@@ -19,8 +19,7 @@ class Stars extends Component {
 		//var newState = {};
 		//newState[e.target.name] = e.target.nextValue;
 		//this.setState(newState);
-      var stateBeingChanged = this.state[name];
-      this.setState({stateBeingChanged: nextValue});
+      this.setState({roomRating: nextValue});
    }
 
    render() {
