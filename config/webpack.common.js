@@ -39,7 +39,7 @@ module.exports = {
 
       // SCSS files
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -61,23 +61,7 @@ module.exports = {
             'sass-loader'
           ]
         })
-      },
-	  
-	  //CSS files
-	  {
-		test: /.\css$/,
-		use:ExtractTextPlugin.extract({
-			fallback:'style-loader',
-			use: [
-            {
-              loader: 'css-loader',
-              options: {
-                'sourceMap': true,
-                'importLoaders': 1
-              }
-            }
-		})
-	  }
+      }
     ]
   },
 
