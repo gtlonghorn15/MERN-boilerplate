@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 import StarRating from 'react-native-star-rating';
  
 class GeneralStarExample extends Component {
@@ -19,9 +20,14 @@ class GeneralStarExample extends Component {
     return (
       <StarRating
         disabled={false}
+        emptyStar={'ios-star-outline'}
+        fullStar={'ios-star'}
+        halfStar={'ios-star-half'}
+        iconSet={'Ionicons'}
         maxStars={5}
         rating={this.state.starCount}
         selectedStar={(rating) => this.onStarRatingPress(rating)}
+        starColor={'red'}
       />
     );
   }
