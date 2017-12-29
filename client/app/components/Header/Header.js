@@ -15,6 +15,9 @@ const Header = () => (
       <nav>
          <Link to="/textbox">TextBox</Link>
       </nav>
+      <nav>
+         <Link to="/dropdown">Dropdown</Link>
+      </nav>
 
       <hr />
    </header>

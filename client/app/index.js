@@ -17,6 +17,7 @@ import HelloWorld from './components/HelloWorld/HelloWorld';
 
 import Stars from './components/Stars/Stars';
 import TextBox from './components/TextBox/TextBox';
+import Dropdown from './components/Dropdown/Dropdown';
 
 import './styles/styles.scss';
 
@@ -28,6 +29,7 @@ render((
         <Route path="/helloworld" component={HelloWorld}/>
 		  <Route path="/stars" component={Stars}/>
         <Route path="/textbox" component={TextBox}/>
+        <Route path="/dropdown" component={Dropdown}/>
         <Route component={NotFound}/>
       </Switch>
     </App>
