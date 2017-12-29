@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+const extract = (str, pattern) => (str.match(pattern) || []).pop() || '';
+const extractAlphanum = (str) => extract(str, "[0-9a-zA-Z]+");
+const limitLength = (str, length) => str.substring(0, length);
+
 class TextBox extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +14,7 @@ class TextBox extends Component {
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({value: limitLength(extractAlphanum(event.target.value), 10)});
   }
 
   handleSubmit(event) {
