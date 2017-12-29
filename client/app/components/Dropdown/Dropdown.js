@@ -6,7 +6,7 @@ class Dropdown extends Component {
     super(props);
     
     this.state = {
-      selectedOption: ''
+      selectedOption: '   '
     };
     
     this.handleChange = this.handleChange.bind(this);
@@ -14,8 +14,9 @@ class Dropdown extends Component {
 
   //handleChange = (selectedOption) => {
   handleChange(event) {
-    this.setState({selectedOption});
-    console.log(`Selected: ${selectedOption.label}`);
+    this.setState({selectedOption: event.target.value});
+    //console.log(`Selected: ${selectedOption.label}`);
+    alert('Choice: ' + this.state.value);
   }
   
   render() {
