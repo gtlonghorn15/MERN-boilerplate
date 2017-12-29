@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 
 class Dropdown extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     
-    state = {
-      selectedOption: '',
-    }
+    this.state = {
+      selectedOption: ''
+    };
   }
 
   handleChange = (selectedOption) => {
-    this.setState({ selectedOption });
+    this.setState({selectedOption});
     console.log(`Selected: ${selectedOption.label}`);
   }
   
