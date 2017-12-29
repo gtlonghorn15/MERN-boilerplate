@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 
 class Dropdown extends Component {
-  state = {
-    selectedOption: ''
-  };
+  constructor() {
+    super();
+    
+    this.state = {
+      selectedOption: ''
+    };
+  }
 
   handleChange = (selectedOption) => {
     this.setState({selectedOption});
