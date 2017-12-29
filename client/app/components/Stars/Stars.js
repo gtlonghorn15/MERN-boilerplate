@@ -13,6 +13,11 @@ class Stars extends Component {
 			immersionRating: 0,
 			puzzleQualityRating: 0
       };
+      
+      this.onStarClickRoom = this.onStarClickRoom.bind(this);
+      this.onStarClickCustomer = this.onStarClickCustomer.bind(this);
+      this.onStarClickImmersion = this.onStarClickImmersion.bind(this);
+      this.onStarClickPuzzle = this.onStarClickPuzzle.bind(this);
    }
 
    onStarClickRoom(nextValue, prevValue, name) {
