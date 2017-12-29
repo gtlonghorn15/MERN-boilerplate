@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 
 class Stars extends Component {
-   constructor() {
-      super();
+   constructor(props) {
+      super(props);
 
       this.state = {
          //rating: 0
