@@ -3,11 +3,9 @@ import 'rc-time-picker/assets/index.css';
 
 import React, { Component } from 'react';
 import Select from 'react-select';
-import moment from 'moment';
 import TimePicker from 'rc-time-picker';
 
 const showHour = false;
-const now = moment().minute(0).second(0);
 
 var completedArr = [{ value: 'yes', label: 'Yes' }, { value: 'no', label: 'No' }];
 var numArr = [{ value: '1', label: '1' }, { value: '2', label: '2' }, { value: '3', label: '3' }, { value: '4', label: '4' }, { value: '5', label: '5' }];
@@ -48,7 +46,7 @@ class Dropdown extends Component {
          />
          <TimePicker
             style={{ width: 100 }}
-            defaultValue={moment()}
+            defaultValue={00:00}
             showHour={showHour}
          />
          <Select
