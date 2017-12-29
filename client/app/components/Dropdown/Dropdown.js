@@ -10,39 +10,29 @@ const showHour = false;
 const showMinute = false;
 const showSecond = false;
 const defaultTime = moment().minute(0).second(0);
-const defaultNum = moment().hour(0);
+const defaultClues = moment().hour(0);
+const defaultGroupSize = moment().hour(2);
 const hideDisabledOptions = true;
+const allowEmpty = false;
 var disabledClues = [11,12,13,14,15,16,17,18,19,20,21,22,23];
 var disabledGroupSize = [0,16,17,18,19,20,21,22,23];
 
 var completedArr = [{ value: 'yes', label: 'Yes' }, { value: 'no', label: 'No' }];
-//var numArr = [{ value: '1', label: '1' }, { value: '2', label: '2' }, { value: '3', label: '3' }, { value: '4', label: '4' }, { value: '5', label: '5' }];
 
 class Dropdown extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     
     this.state = {
-      completedOption: completedArr[0],
-      //numClueOption: numArr[0],
-      //groupSizeOption: numArr[0]
+      completedOption: completedArr[0]
     };
     
-    this.updateValueCompleted = this.updateValueCompleted.bind(this);
-    //this.updateValueNumClue = this.updateValueNumClue.bind(this);
-    //this.updateValueGroupSize = this.updateValueGroupSize.bind(this);
+    this.updateValueCompleted = this.updateValueCompleted.bind(this);    
   }
   
   updateValueCompleted(newValue) {
      this.setState({ completedOption: newValue })
   }
-  /*
-  updateValueNumClue(newValue) {
-     this.setState({ numClueOption: newValue })
-  }
-  updateValueGroupSize(newValue) {
-     this.setState({ groupSizeOption: newValue })
-  }*/
   
   render() {
     return (
@@ -55,42 +45,34 @@ class Dropdown extends Component {
          />
          <TimePicker
             name="Time-Remaining"
-            style={{ width: 100 }}
+            style={{ width: 50 }}
             defaultValue={defaultTime}
             showHour={showHour}
             hideDisabledOptions={hideDisabledOptions}
+            allowEmpty={allowEmpty}
          />
+         <br/>
          <TimePicker
             name="Number-Clues"
-            style={{ width: 100 }}
-            defaultValue={defaultNum}
+            style={{ width: 50 }}
+            defaultValue={defaultClues}
             showMinute={showMinute}
             showSecond={showSecond}
             hideDisabledOptions={hideDisabledOptions}
+            allowEmpty={allowEmpty}
             disabledHours={() => disabledClues}
          />
+         <br/>
          <TimePicker
             name="Group-Size"
-            style={{ width: 100 }}
-            defaultValue={defaultNum}
+            style={{ width: 50 }}
+            defaultValue={defaultGroupSize}
             showMinute={showMinute}
             showSecond={showSecond}
             hideDisabledOptions={hideDisabledOptions}
+            allowEmpty={allowEmpty}
             disabledHours={() => disabledGroupSize}
          />
-         /*
-         <Select
-           name="Number-Clues"
-           value={this.state.numClueOption}
-           onChange={this.updateValueNumClue}
-           options={numArr}
-         />
-         <Select
-           name="Group-Size"
-           value={this.state.groupSizeOption}
-           onChange={this.updateValueGroupSize}
-           options={numArr}
-         />*/
       </div>
     );
   }
