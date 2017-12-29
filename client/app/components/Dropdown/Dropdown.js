@@ -15,8 +15,8 @@ class Dropdown extends Component {
       completedOption: completedArr[0],
       timeMinOption: timeArr[0],
       timeSecOption: timeArr[0],
-      numClueOption: sizeArr[0],
-      groupSizeOption: sizeArr[0]
+      numClueOption: clueArr[0],
+      groupSizeOption: groupSizeArr[0]
     };
     
     this.updateValueCompleted = this.updateValueCompleted.bind(this);
