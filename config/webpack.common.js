@@ -30,11 +30,19 @@ module.exports = {
 
   module: {
     rules: [
+    
+      // JSX files
+      {
+        test: /\.jsx$/,
+        //include: helpers.root('client'),
+        loader: 'babel-loader'
+      },
+      
       // JS files
       {
-        test: /\.jsx?$/,
-        include: helpers.root('client'),
-        loader: 'babel-loader'
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
       },
 
       // SCSS files
