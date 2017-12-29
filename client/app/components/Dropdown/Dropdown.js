@@ -24,8 +24,8 @@ class Dropdown extends Component {
     
     this.state = {
       completedOption: completedArr[0],
-      numClueOption: numArr[0],
-      groupSizeOption: numArr[0]
+      //numClueOption: numArr[0],
+      //groupSizeOption: numArr[0]
     };
     
     this.updateValueCompleted = this.updateValueCompleted.bind(this);
@@ -54,26 +54,29 @@ class Dropdown extends Component {
            options={completedArr}
          />
          <TimePicker
+            name="Time-Remaining"
             style={{ width: 100 }}
             defaultValue={defaultTime}
             showHour={showHour}
             hideDisabledOptions={hideDisabledOptions}
          />
          <TimePicker
+            name="Number-Clues"
             style={{ width: 100 }}
             defaultValue={defaultNum}
             showMinute={showMinute}
             showSecond={showSecond}
             hideDisabledOptions={hideDisabledOptions}
-            disabledHours={() => disabledClues}
+            //disabledHours={() => disabledClues}
          />
          <TimePicker
+            name="Group-Size"
             style={{ width: 100 }}
             defaultValue={defaultNum}
             showMinute={showMinute}
             showSecond={showSecond}
             hideDisabledOptions={hideDisabledOptions}
-            disabledHours={() => disabledGroupSize}
+            //disabledHours={() => disabledGroupSize}
          />
          /*
          <Select
