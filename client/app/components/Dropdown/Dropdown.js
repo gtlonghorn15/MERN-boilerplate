@@ -9,7 +9,7 @@ class Dropdown extends Component {
     super(props);
     
     this.state = {
-      selectedOption: 'yes'
+      selectedOption: options[0]
     };
     
     this.updateValue = this.updateValue.bind(this);
@@ -17,7 +17,7 @@ class Dropdown extends Component {
   
   updateValue(newValue) {
      this.setState({ selectedOption: newValue })
-     alert('Choice: ' + this.state.selectedOption);
+     alert('Choice: ' + this.state.selectedOption.value);
   }
   
   render() {
