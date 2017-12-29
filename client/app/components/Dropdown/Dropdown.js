@@ -17,7 +17,7 @@ class Dropdown extends Component {
   
   updateValue(newValue) {
      this.setState({ selectedOption: newValue })
-     alert('Choice: ' + this.state.value);
+     alert('Choice: ' + this.state.selectedOption);
   }
   
   render() {
