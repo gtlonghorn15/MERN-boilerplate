@@ -12,8 +12,8 @@ const showSecond = false;
 const defaultTime = moment().minute(0).second(0);
 const defaultNum = moment().hour(0);
 const hideDisabledOptions = true;
-disabledClues= [11,12,13,14,15,16,17,18,19,20,21,22,23];
-disabledGroupSize= [0,16,17,18,19,20,21,22,23];
+var disabledClues = [11,12,13,14,15,16,17,18,19,20,21,22,23];
+var disabledGroupSize = [0,16,17,18,19,20,21,22,23];
 
 var completedArr = [{ value: 'yes', label: 'Yes' }, { value: 'no', label: 'No' }];
 //var numArr = [{ value: '1', label: '1' }, { value: '2', label: '2' }, { value: '3', label: '3' }, { value: '4', label: '4' }, { value: '5', label: '5' }];
@@ -67,7 +67,7 @@ class Dropdown extends Component {
             showMinute={showMinute}
             showSecond={showSecond}
             hideDisabledOptions={hideDisabledOptions}
-            //disabledHours={() => disabledClues}
+            disabledHours={() => disabledClues}
          />
          <TimePicker
             name="Group-Size"
@@ -76,7 +76,7 @@ class Dropdown extends Component {
             showMinute={showMinute}
             showSecond={showSecond}
             hideDisabledOptions={hideDisabledOptions}
-            //disabledHours={() => disabledGroupSize}
+            disabledHours={() => disabledGroupSize}
          />
          /*
          <Select
