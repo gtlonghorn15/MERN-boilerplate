@@ -100,9 +100,9 @@ class RoomViewer extends Component {
           )) }
         </ul>
 
-        <form onSubmit={this.newRoom} method="post">
-          <label for="room_name">Enter name: </label>
-          <input id="room_name" type="text" name="name" value="Name for room." />
+        <form action="/api/rooms" method="post">
+          <label>Enter name: </label>
+          <input type="text" name="name" value="Name for room." />
           <input type="submit" value="OK" />
         </form>
       </div>
