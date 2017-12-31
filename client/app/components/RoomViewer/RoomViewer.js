@@ -27,7 +27,7 @@ class RoomViewer extends Component {
       });
   }
 
-  newCounter() {
+  newRoom() {
     fetch('/api/rooms', { method: 'POST' })
       .then(res => res.json())
       .then(json => {
@@ -95,7 +95,7 @@ class RoomViewer extends Component {
             <li key={i}>
               <span>{room.name} </span>
               <span>{room.address}</span>
-              <button onClick={() => this.deleteCounter(i)}>x</button>
+              <button onClick={() => this.deleteRoom(i)}>x</button>
             </li>
           )) }
         </ul>
