@@ -18,6 +18,9 @@ const Header = () => (
       <nav>
          <Link to="/dropdown">Dropdown</Link>
       </nav>
+      <nav>
+         <Link to="/roomviewer">RoomViewer</Link>
+      </nav>
 
       <hr />
    </header>

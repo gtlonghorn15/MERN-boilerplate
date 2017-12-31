@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const RoomSchema = new mongoose.Schema({
   name: {
     type: String,
-    default: 0
+    default: "Default name"
   },
   address: {
     type: String,
