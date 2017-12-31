@@ -102,8 +102,8 @@ class RoomViewer extends Component {
 
         <form action="/api/rooms" method="post">
           <label>Enter name: </label>
-          <input type="text" name="name" value="Name for room." />
-          <input type="submit" value="OK" />
+	  <input type="text" name="name" value="Name for room." />
+	  <input type="submit" value="OK" />
         </form>
       </div>
     );
