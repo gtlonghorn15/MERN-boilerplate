@@ -18,7 +18,7 @@ import HelloWorld from './components/HelloWorld/HelloWorld';
 import Stars from './components/Stars/Stars';
 import TextBox from './components/TextBox/TextBox';
 import Dropdown from './components/Dropdown/Dropdown';
-import RoomViewer from '.components/RoomViewer/RoomViewer';
+import RoomViewer from './components/RoomViewer/RoomViewer';
 
 import './styles/styles.scss';
 
