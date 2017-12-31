@@ -4,10 +4,6 @@ const RoomSchema = new mongoose.Schema({
   name: {
     type: String,
     default: "Default name"
-  },
-  address: {
-    type: String,
-    default: "123 Street"
   }
 });
 

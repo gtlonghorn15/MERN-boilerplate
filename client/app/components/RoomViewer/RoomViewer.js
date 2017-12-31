@@ -94,7 +94,6 @@ class RoomViewer extends Component {
           { this.state.rooms.map((room, i) => (
             <li key={i}>
               <span>{room.name} </span>
-              <span>{room.address}</span>
               <button onClick={() => this.deleteRoom(i)}>x</button>
             </li>
           )) }
