@@ -17,16 +17,13 @@ class RoomViewer extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.newRoom = this.newRoom.bind(this);
-    //this.incrementCounter = this.incrementCounter.bind(this);
-    //this.decrementCounter = this.decrementCounter.bind(this);
     this.deleteRoom = this.deleteRoom.bind(this);
-
     this._modifyRoom = this._modifyRoom.bind(this);
   }
   
   handleChange(event) {
     this.setState({roomName: limitLength(extractAlphanum(event.target.roomName), 25)});
-    //this.setState({roomAddress: limitLength(extractAlphanum(event.target.roomAddress), 25)});
+    this.setState({roomAddress: limitLength(extractAlphanum(event.target.roomAddress), 25)});
   }
 
   componentDidMount() {
@@ -89,12 +86,10 @@ class RoomViewer extends Component {
             </li>
           )) }
         </ul>
-        <form>
-          <label>
-            Room Name
-            <input type="text" name="name" onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit" onClick={this.newRoom} />
+        <form method="post" action="/api/rooms">
+          <input type="text" name="roomName" onChange={this.handleChange} />
+          <input type="text" name="roomAddress" onChange={this.handleChange} />
+          <input type="submit">
         </form>
       </div>
     );
