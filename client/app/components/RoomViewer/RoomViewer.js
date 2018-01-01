@@ -26,7 +26,7 @@ class RoomViewer extends Component {
   
   handleChange(event) {
     this.setState({roomName: limitLength(extractAlphanum(event.target.roomName), 25)});
-    this.setState({roomAddress: limitLength(extractAlphanum(event.target.roomAddress), 25)});
+    //this.setState({roomAddress: limitLength(extractAlphanum(event.target.roomAddress), 25)});
   }
 
   componentDidMount() {
@@ -92,7 +92,7 @@ class RoomViewer extends Component {
         <form>
           <label>
             Room Name
-            <input type="text" name="name" value={this.state.roomName} onChange={this.handleChange} />
+            <input type="text" name="name" onChange={this.handleChange} />
           </label>
           <input type="submit" value="Submit" onClick={this.newRoom} />
         </form>
