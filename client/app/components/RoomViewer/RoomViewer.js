@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 import ReactTable from 'react-table';
+import './RoomViewer.css'
 
 const extract = (str, pattern) => (str.match(pattern) || []).pop() || '';
 const extractAlphanum = (str) => extract(str, "[0-9a-zA-Z]+");
