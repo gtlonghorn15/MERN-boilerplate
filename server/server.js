@@ -25,11 +25,16 @@ mongoose.connect(isDev ? config.db_dev : config.db, {
 mongoose.Promise = global.Promise;
 
 const app = express();
+//app.use(bodyParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//app.use(express.urlencoded());
+//app.use(express.json());
+
 // API routes
 require('./routes')(app);
+//app.use(app.router);
 
 if (isDev) {
   const compiler = webpack(webpackConfig);
@@ -68,5 +73,6 @@ app.listen(port, '0.0.0.0', (err) => {
 
   console.info('>>> 🌎 Open http://0.0.0.0:%s/ in your browser.', port);
 });
+
 
 module.exports = app;

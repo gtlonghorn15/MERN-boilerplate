@@ -9,7 +9,8 @@ module.exports = (app) => {
   });
 
   app.post('/api/rooms', function (req, res, next) {
-    const room = new Room();
+    var room = new Room(req.body);
+    //console.log(req);
     room.save()
       .then(() => res.json(room))
       .catch((err) => next(err));
