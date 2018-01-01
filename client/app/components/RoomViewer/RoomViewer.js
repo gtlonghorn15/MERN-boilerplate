@@ -87,9 +87,9 @@ class RoomViewer extends Component {
           )) }
         </ul>
         <form method="post" action="/api/rooms">
-          <input type="text" name="roomName" onChange={this.handleChange} />
-          <input type="text" name="roomAddress" onChange={this.handleChange} />
-          <input type="submit">
+          <input type="text" name="name" />
+          <input type="text" name="address" />
+          <input type="submit" />
         </form>
       </div>
     );
