@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 
+const extract = (str, pattern) => (str.match(pattern) || []).pop() || '';
+const extractAlphanum = (str) => extract(str, "[0-9a-zA-Z]+");
+const limitLength = (str, length) => str.substring(0, length);
+
 class RoomViewer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      rooms: []
+      rooms: [],
+      roomName: '',
+      roomAddress: ''
     };
 
+    this.handleChange = this.handleChange.bind(this);
     this.newRoom = this.newRoom.bind(this);
     //this.incrementCounter = this.incrementCounter.bind(this);
     //this.decrementCounter = this.decrementCounter.bind(this);
     this.deleteRoom = this.deleteRoom.bind(this);
 
     this._modifyRoom = this._modifyRoom.bind(this);
+  }
+  
+  handleChange(event) {
+    this.setState({roomName: limitLength(extractAlphanum(event.target.roomName), 25)});
+    this.setState({roomAddress: limitLength(extractAlphanum(event.target.roomAddress), 25)});
   }
 
   componentDidMount() {
@@ -39,28 +51,6 @@ class RoomViewer extends Component {
         });
       });
   }
-
-  /*
-  incrementCounter(index) {
-    const id = this.state.counters[index]._id;
-
-    fetch(`/api/counters/${id}/increment`, { method: 'PUT' })
-      .then(res => res.json())
-      .then(json => {
-        this._modifyCounter(index, json);
-      });
-  }
-
-  decrementCounter(index) {
-    const id = this.state.counters[index]._id;
-
-    fetch(`/api/counters/${id}/decrement`, { method: 'PUT' })
-      .then(res => res.json())
-      .then(json => {
-        this._modifyCounter(index, json);
-      });
-  }
-  */
 
   deleteRoom(index) {
     const id = this.state.rooms[index]._id;
@@ -99,11 +89,12 @@ class RoomViewer extends Component {
             </li>
           )) }
         </ul>
-
-        <form action="/api/rooms" method="post">
-          <label>Enter name: </label>
-	  <input type="text" name="name" value="Name for room." />
-	  <input type="submit" value="OK" />
+        <form>
+          <label>
+            Room Name
+            <input type="text" name="name" value={this.state.roomName} onChange={this.handleChange} />
+          </label>
+          <input type="submit" value="Submit" onClick={this.newRoom} />
         </form>
       </div>
     );

@@ -17,6 +17,7 @@ class TextBox extends Component {
     this.setState({value: limitLength(extractAlphanum(event.target.value), 10)});
   }
 
+  //form onSubmit={this.handleSubmit}
   handleSubmit(event) {
     alert('Text was submitted: ' + this.state.value);
     event.preventDefault();
@@ -24,7 +25,7 @@ class TextBox extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form>
         <label>
           Review Summary
           <input type="text" value={this.state.value} onChange={this.handleChange} />
