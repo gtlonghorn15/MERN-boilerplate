@@ -27,6 +27,12 @@ const columns_location = [{
 }, {
    Header: 'Location Website',
    accessor: 'website'
+}, {
+   Header: 'Location Phone Number',
+   accessor: 'contactInfo.tel'
+}, {
+   Header: 'Location Email',
+   accessor: 'contactInfo.email'
 }]
 
 class RoomLocationViewer extends Component {
@@ -160,6 +166,9 @@ class RoomLocationViewer extends Component {
                      <option key={i} value={roomcompany._id}>{roomcompany.name}</option>
                   )) }
                </select>
+               <input type="text" name="website" />
+               <input type="number" name="contactInfo.tel" />
+               <input type="text" name="contactInfo.email" />
                <input type="submit" />
             </form>
             <ReactTable
@@ -177,6 +186,7 @@ class RoomLocationViewer extends Component {
             </ul>
             <form target="_blank" method="post" action="/api/roomcompanies">
                <input type="text" name="name" />
+               <input type="text" name="website" />
                <input type="submit" />
             </form>
          </div>
