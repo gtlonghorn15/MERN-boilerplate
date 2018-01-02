@@ -11,7 +11,7 @@ const RoomLocationSchema = new mongoose.Schema({
       type: String
    },
    contactInfo: {
-      type: mongoose.Schema.Type.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'contactInfo'
    }
 });

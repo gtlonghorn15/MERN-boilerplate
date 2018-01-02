@@ -9,7 +9,7 @@ var contactInfoModelSchema = new Schema({
       type: String
    },
    address: {
-      type: mongoose.Schema.Type.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'address'
    }
 )}
