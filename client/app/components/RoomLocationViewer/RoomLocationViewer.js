@@ -41,8 +41,10 @@ class RoomLocationViewer extends Component {
       this.componentDidMount = this.componentDidMount.bind(this);
       this.newRoomLocation = this.newRoomLocation.bind(this);
       this.newRoomCompany = this.newRoomCompany.bind(this);
-      this.deleteRoom = this.deleteRoom.bind(this);
-      this._modifyRoom = this._modifyRoom.bind(this);
+      this.deleteRoomLocation = this.deleteRoomLocation.bind(this);
+      this.deleteRoomCompany = this.deleteRoomCompany.bind(this);
+      this._modifyRoomLocation = this._modifyRoomLocation.bind(this);
+      this._modifyRoomCompany = this._modifyRoomCompany.bind(this);
    }
 
    componentDidMount() {
@@ -161,9 +163,9 @@ class RoomLocationViewer extends Component {
             />
             <p>Room Companies:</p>
             <ul>
-               { this.state.roomcompanies.map((roomcomany, i) => (
+               { this.state.roomcompanies.map((roomcompany, i) => (
                   <li key={i}>
-                     <span>{roomcomany.name} </span>
+                     <span>{roomcompany.name} </span>
                      <button onClick={() => this.deleteRoomCompany(i)}>x</button>
                   </li>
                )) }
