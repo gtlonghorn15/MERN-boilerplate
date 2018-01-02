@@ -155,6 +155,11 @@ class RoomLocationViewer extends Component {
             </ul>
             <form target="_blank" method="post" action="/api/roomlocations">
                <input type="text" name="name" />
+               <select name="company_id">
+                  { this.state.roomcompanies.map((roomcompany, i) => (
+                     <option key={i} value={roomcompany._id}>{roomcompany.name}</option>
+                  )) }
+               </select>
                <input type="submit" />
             </form>
             <ReactTable
