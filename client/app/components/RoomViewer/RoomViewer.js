@@ -95,14 +95,12 @@ class RoomViewer extends Component {
                { this.state.rooms.map((room, i) => (
                   <li key={i}>
                      <span>{room.name} </span>
-                     <span>{room.address} </span>
                      <button onClick={() => this.deleteRoom(i)}>x</button>
                   </li>
                )) }
             </ul>
             <form target="_blank" method="post" action="/api/rooms">
                <input type="text" name="name" />
-               <input type="text" name="address" />
                <input type="submit" />
             </form>
          </div>
