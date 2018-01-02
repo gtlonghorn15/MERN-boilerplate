@@ -1,12 +1,24 @@
 const mongoose = require('mongoose');
 
 const RoomSchema = new mongoose.Schema({
-   name: String,
-   location_id: String,
-   time_available_minutes: Number,
-   max_players: Number,
-   min_players: Number,
-   reported_completion_percentage: Number,
+   name: {
+      type: String
+   },
+   location_id: {
+      type: String
+   },
+   time_available_minutes: {
+      type: Number
+   },
+   max_players: {
+      type: Number
+   },
+   min_players: {
+      type: Number
+   },
+   reported_completion_percentage: {
+      type: Number
+   },
    reported_difficulty: {
       type: Number,
       default: 0

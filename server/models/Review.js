@@ -1,13 +1,19 @@
 const mongoose = require('mongoose');
 
 const ReviewSchema = new mongoose.Schema({
-   username: String,
-   room_id: String,
+   username: {
+      type: String
+   },
+   room_id: {
+      type: String
+   },
    room_rating: {
       type: Number,
       default: 0
    },
-   review_summary: String,
+   review_summary: {
+      type: String
+   },
    customer_service_rating: {
       type: Number,
       default: 0
@@ -32,7 +38,9 @@ const ReviewSchema = new mongoose.Schema({
       type: Number,
       default: 0
    },
-   group_size: Number,
+   group_size: {
+      type: Number
+   },
    group_size_rating: {
       type: Number,
       default: 0
