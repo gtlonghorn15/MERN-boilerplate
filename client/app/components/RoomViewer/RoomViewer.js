@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 import ReactTable from 'react-table';
-import './RoomViewer.css'
+//import './RoomViewer.css'
+import 'react-table/react-table.css';
 
 const extract = (str, pattern) => (str.match(pattern) || []).pop() || '';
 const extractAlphanum = (str) => extract(str, "[0-9a-zA-Z]+");
 const limitLength = (str, length) => str.substring(0, length);
 
 const columns = [{
-    Header: 'Escape Room Name',
-    accessor: 'name' // String-based value accessors!
-  }, {
-    Header: 'Escape Room Address',
-    accessor: 'address'
-  }]
+	Header: 'Escape Room Name',
+    	accessor: 'name',
+    	minWidth: 300
+}, {
+    	Header: 'Escape Room Address',
+    	accessor: 'address',
+    	minWidth: 300
+}]
 
 class RoomViewer extends Component {
   constructor(props) {
