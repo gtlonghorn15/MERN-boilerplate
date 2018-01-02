@@ -1,33 +1,35 @@
 const mongoose = require('mongoose');
 
-const RoomLocationSchema = new mongoose.Schema({
-   name: {
-      type: String,
-      default: "Default name"
-   },
-   company: {
-      type: String,
-      default: "Company"
-   },
+//address model
+var addressModelSchema = new Schema({
+   houseNumber: String,
+   street: String,
+   apartment: String,
+   city: String,
+   state: String,
+   zip: Number)}
+
+mongoose.model('address',addressModelSchema ,'address' )
+
+//contactInfo model
+var contactInfoModelSchema = new Schema({
+   tel: Number,
+   email: String,
    address: {
-      type: String,
-      default: "123 Street"
-   },
-   pricing: {
-      type: Number,
-      default: 24.99
-   },
-   website: {
-      type: String,
-      default: "www.escaperoom.com"
-   },
-   phonenumber: {
-      type: Number,
-      default: 1234567890
-   },
-   email: {
-      type: String,
-      default: "example@example.com"
+      type: mongoose.Schema.Type.ObjectId,
+      ref: 'address'
+   }
+)}
+
+mongoose.model('contactInfo ',contactInfoModelSchema ,'contactInfo ')
+
+const RoomLocationSchema = new mongoose.Schema({
+   name: String,
+   company_id: String,
+   website: String,
+   contactInfo: {
+      type: mongoose.Schema.Type.ObjectId,
+      ref: 'contactInfo'
    }
 });
 

@@ -19,6 +19,7 @@ import Stars from './components/Stars/Stars';
 import TextBox from './components/TextBox/TextBox';
 import Dropdown from './components/Dropdown/Dropdown';
 import RoomViewer from './components/RoomViewer/RoomViewer';
+import RoomLocationViewer from './components/RoomLocationViewer/RoomLocationViewer';
 
 import './styles/styles.scss';
 
@@ -32,6 +33,7 @@ render((
             <Route path="/textbox" component={TextBox}/>
             <Route path="/dropdown" component={Dropdown}/>
             <Route path="/roomviewer" component={RoomViewer}/>
+            <Route path="/roomlocationviewer" component={RoomLocationViewer}/>
             <Route component={NotFound}/>
          </Switch>
       </App>

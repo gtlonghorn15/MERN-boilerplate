@@ -2,9 +2,9 @@ const RoomLocation = require('../../models/RoomLocation');
 
 module.exports = (app) => {
    app.get('/api/roomlocations', (req, res, next) => {
-      Location.find()
+      RoomLocation.find()
          .exec()
-         .then((location) => res.json(location))
+         .then((roomlocation) => res.json(roomlocation))
          .catch((err) => next(err));
    });
 
