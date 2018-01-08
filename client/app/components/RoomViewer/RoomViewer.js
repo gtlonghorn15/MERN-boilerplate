@@ -39,7 +39,8 @@ class RoomViewer extends Component {
       super(props);
 
       this.state = {
-         rooms: []
+         rooms: [],
+         roomlocations: []
       };
 
       //this.handleChange = this.handleChange.bind(this);
@@ -62,6 +63,13 @@ class RoomViewer extends Component {
          .then(json => {
             this.setState({
                rooms: json
+            });
+         });
+      fetch('/api/roomlocations', { method: 'GET' })
+         .then(res => res.json())
+         .then(json => {
+            this.setState({
+               roomlocations: json
             });
          });
    }
