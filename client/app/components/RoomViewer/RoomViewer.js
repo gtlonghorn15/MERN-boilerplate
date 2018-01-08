@@ -8,10 +8,30 @@ const extract = (str, pattern) => (str.match(pattern) || []).pop() || '';
 const extractAlphanum = (str) => extract(str, "[0-9a-zA-Z]+");
 const limitLength = (str, length) => str.substring(0, length);
 
-const columns = [{
+const columns_room = [{
    Header: 'Escape Room Name',
-   accessor: 'name',
-   minWidth: 300
+   accessor: 'name'
+}, {
+   Header: 'Location ID',
+   accessor: 'location_id'
+}, {
+   Header: 'Room ID',
+   accessor: 'id'
+}, {
+   Header: 'Number of minutes',
+   accessor: 'time_available_minutes'
+}, {
+   Header: 'Max Players',
+   accessor: 'max_players'
+}, {
+   Header: 'Min Players',
+   accessor: 'min_players'
+}, {
+   Header: 'Completion Percentage',
+   accessor: 'reported_completion_percentage'
+}, {
+   Header: 'Difficulty',
+   accessor: 'reported_difficulty'
 }]
 
 class RoomViewer extends Component {
@@ -87,7 +107,7 @@ class RoomViewer extends Component {
          <div>
             <ReactTable
                data={this.state.rooms}
-               columns={columns}
+               columns={columns_room}
             />
             <p>Rooms:</p>
 
@@ -101,6 +121,16 @@ class RoomViewer extends Component {
             </ul>
             <form target="_blank" method="post" action="/api/rooms">
                <input type="text" name="name" />
+               <select name="location_id">
+                  { this.state.roomlocations.map((roomlocation, i) => (
+                     <option key={i} value={roomlocation._id}>{roomlocation.name}</option>
+                  )) }
+               </select>
+               <input type="number" name="time_available_minutes" />
+               <input type="number" name="max_players" />
+               <input type="number" name="min_players" />
+               <input type="number" name="reported_completion_percentage" />
+               <input type="number" name="reported_difficulty" />
                <input type="submit" />
             </form>
          </div>
