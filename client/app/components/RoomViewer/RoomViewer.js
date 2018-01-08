@@ -16,7 +16,7 @@ const columns_room = [{
    accessor: 'location_id'
 }, {
    Header: 'Room ID',
-   accessor: 'id'
+   accessor: '_id'
 }, {
    Header: 'Number of minutes',
    accessor: 'time_available_minutes'

@@ -15,7 +15,7 @@ const columns_company = [{
    accessor: 'website'
 }, {
    Header: 'Company ID',
-   accessor: 'id'
+   accessor: '_id'
 }]
 
 const columns_location = [{
