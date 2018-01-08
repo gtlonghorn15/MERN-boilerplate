@@ -7,12 +7,17 @@ const RoomLocationSchema = new mongoose.Schema({
    company_id: {
       type: String
    },
+   address_id: {
+      type: String
+   },
    website: {
       type: String
    },
-   contactInfo: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'contactInfo'
+   tel: {
+      type: Number
+   },
+   email: {
+      type: String
    }
 });
 

@@ -29,10 +29,10 @@ const columns_location = [{
    accessor: 'website'
 }, {
    Header: 'Location Phone Number',
-   accessor: 'contactInfo.tel'
+   accessor: 'tel'
 }, {
    Header: 'Location Email',
-   accessor: 'contactInfo.email'
+   accessor: 'email'
 }]
 
 class RoomLocationViewer extends Component {
@@ -167,8 +167,8 @@ class RoomLocationViewer extends Component {
                   )) }
                </select>
                <input type="text" name="website" />
-               <input type="number" name="contactInfo.tel" />
-               <input type="text" name="contactInfo.email" />
+               <input type="number" name="tel" />
+               <input type="text" name="email" />
                <input type="submit" />
             </form>
             <ReactTable
