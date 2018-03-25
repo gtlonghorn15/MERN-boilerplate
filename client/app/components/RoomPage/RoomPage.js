@@ -54,15 +54,24 @@ class RoomPage extends Component {
 
       //const { match: { params } } = this.props;
       
+      /*
       const {id} = this.props.match.params
 
       app.get('/api/rooms/${params.id}')
          .then(({ currentRoom }) => {
             console.log('currentRoom', currentRoom);
             this.setState({ currentRoom });
-         });
+         });*/
          
       fetch('/api/rooms', { method: 'GET' })
+         .then(res => res.json())
+         .then(json => {
+            this.setState({
+               rooms: json
+            });
+         });
+         
+      fetch('/api/rooms/:id', { method: 'GET' })
          .then(res => res.json())
          .then(json => {
             this.setState({
