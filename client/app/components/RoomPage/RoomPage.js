@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'whatwg-fetch';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
+import { withRouter } from 'react-router-dom'
 
 const columns_room = [{
    Header: 'Escape Room Name',
@@ -34,7 +35,7 @@ class RoomPage extends Component {
       super(props);
 
       this.state = {
-         currentRoom: null
+         currentRoom: []
       };
 
       //this.handleChange = this.handleChange.bind(this);
@@ -51,24 +52,36 @@ class RoomPage extends Component {
    componentDidMount() {
 
       //const { match: { params } } = this.props;
+      /*
       const {id} = this.props.match.params
 
       app.get('/api/rooms/${params.id}')
          .then(({ currentRoom }) => {
             console.log('currentRoom', currentRoom);
             this.setState({ currentRoom });
+         });*/
+         
+      fetch('/api/rooms', { method: 'GET' })
+         .then(res => res.json())
+         .then(json => {
+            this.setState({
+               currentRoom: json
+            });
          });
     
    }
 
    render() {
+      const {match} = this.props
+      const id = match.params.id
       return (
          <div>
             <h1>Room:</h1>
             <p>Hello World</p>
+            <span>{id}</span>
          </div>
       );
    }
 }
 
-export default RoomPage;
+export default withRouter(RoomPage)
