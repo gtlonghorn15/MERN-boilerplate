@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
-//import ReactTable from 'react-table';
-//import 'react-table/react-table.css';
+import ReactTable from 'react-table';
+import 'react-table/react-table.css';
 
 const columns_room = [{
    Header: 'Escape Room Name',
@@ -70,9 +70,10 @@ class RoomPage extends Component {
       return (
          <div>
             <h1>Room:</h1>
+            <p>Hello World</p>
          </div>
       );
    }
 }
 
-export default RoomViewer;
+export default RoomPage;
