@@ -35,7 +35,8 @@ class RoomPage extends Component {
       super(props);
 
       this.state = {
-         currentRoom: []
+         currentRoom: null,
+         rooms: []
       };
 
       //this.handleChange = this.handleChange.bind(this);
@@ -52,14 +53,14 @@ class RoomPage extends Component {
    componentDidMount() {
 
       //const { match: { params } } = this.props;
-      /*
+      
       const {id} = this.props.match.params
 
       app.get('/api/rooms/${params.id}')
          .then(({ currentRoom }) => {
             console.log('currentRoom', currentRoom);
             this.setState({ currentRoom });
-         });*/
+         });
          
       fetch('/api/rooms', { method: 'GET' })
          .then(res => res.json())
