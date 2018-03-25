@@ -53,6 +53,7 @@ class RoomPage extends Component {
    componentDidMount() {
 
       //const { match: { params } } = this.props;
+      const { id } = this.props.match.params
       
       /*
       const {id} = this.props.match.params
@@ -71,7 +72,7 @@ class RoomPage extends Component {
             });
          });
          
-      fetch('/api/rooms/:id', { method: 'GET' })
+      fetch('/api/rooms/${id}', { method: 'GET' })
          .then(res => res.json())
          .then(json => {
             this.setState({
@@ -83,13 +84,13 @@ class RoomPage extends Component {
 
    render() {
       const {match} = this.props
-      const id = match.params.id
+      const id_test = match.params.id
       return (
          <div>
             <h1>Room:</h1>
             <p>Hello World</p>
-            <span>{id}</span>
-            <p>{this.state.currentRoom.name}</p>
+            <span>{id_test}</span>
+            <span>{this.state.currentRoom.name}</span>
          </div>
       );
    }
