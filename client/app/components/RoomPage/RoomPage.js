@@ -34,8 +34,7 @@ class RoomPage extends Component {
       super(props);
 
       this.state = {
-         rooms: [],
-         roomlocations: []
+         currentRoom: []
       };
 
       //this.handleChange = this.handleChange.bind(this);
@@ -54,14 +53,7 @@ class RoomPage extends Component {
          .then(res => res.json())
          .then(json => {
             this.setState({
-               rooms: json
-            });
-         });
-      fetch('/api/roomlocations', { method: 'GET' })
-         .then(res => res.json())
-         .then(json => {
-            this.setState({
-               roomlocations: json
+               currentRoom: json
             });
          });
    }

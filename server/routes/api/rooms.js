@@ -7,6 +7,13 @@ module.exports = (app) => {
          .then((room) => res.json(room))
          .catch((err) => next(err));
    });
+   
+   app.get('/api/rooms/:id', (req, res, next) => {
+      Room.findById(req.params.id)
+         .exec()
+         .then((room) => res.json(room))
+         .catch((err) => next(err));
+   });
 
    app.post('/api/rooms', function (req, res, next) {
       var room = new Room(req.body);
