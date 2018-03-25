@@ -35,7 +35,7 @@ render((
             <Route path="/dropdown" component={Dropdown}/>
             <Route path="/roomviewer" component={RoomViewer}/>
             <Route path="/roomlocationviewer" component={RoomLocationViewer}/>
-            <Route path="/roompage" component={RoomPage}/>
+            <Route path="/roompage/:id" component={RoomPage}/>
             <Route component={NotFound}/>
          </Switch>
       </App>

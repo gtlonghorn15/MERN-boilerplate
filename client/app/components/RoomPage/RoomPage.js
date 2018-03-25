@@ -71,6 +71,7 @@ class RoomPage extends Component {
          <div>
             <h1>Room:</h1>
             <p>Hello World</p>
+            <h1>{this.props.params.id}</h1>
          </div>
       );
    }
