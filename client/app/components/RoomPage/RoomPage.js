@@ -85,7 +85,10 @@ class RoomPage extends Component {
    render() {
       const {match} = this.props
       const id_test = match.params.id
-      const room = this.state.rooms.find(item => item._id === id_test);
+      //var data_test = jQuery.parseJSON(this.state.rooms)
+      //var index_test = data_test.map(function(d) { return d['name']; }).indexOf('test')
+      //const room_test = _.findWhere(this.state.rooms, {id: id_test})
+      //room_test = this.state.rooms.find(item => item.name === 'test')
       //const room = this.state.rooms[index]._id;
       //foo.results.find(item => item.id === 2)
       return (
@@ -94,7 +97,7 @@ class RoomPage extends Component {
             <p>Hello World</p>
             <span>{id_test}</span>
             <p>Current Room:</p>
-            <span>{room.name}</span>
+            <span>{id_test}</span>
          </div>
       );
    }
