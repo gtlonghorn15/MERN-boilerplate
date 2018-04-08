@@ -85,13 +85,16 @@ class RoomPage extends Component {
    render() {
       const {match} = this.props
       const id_test = match.params.id
+      const room = this.state.rooms.find(item => item._id === id_test);
+      //const room = this.state.rooms[index]._id;
+      //foo.results.find(item => item.id === 2)
       return (
          <div>
             <h1>Room:</h1>
             <p>Hello World</p>
             <span>{id_test}</span>
             <p>Current Room:</p>
-            <span>{this.state.currentRoom.name}</span>
+            <span>{room.name}</span>
          </div>
       );
    }
