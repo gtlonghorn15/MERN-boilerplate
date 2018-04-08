@@ -9,9 +9,9 @@ module.exports = (app) => {
    });
    
    app.get('/api/rooms/:id', (req, res, next) => {
-      Room.findById({ _id: req.params.id })
+      Room.findById(req.params.id)
          .exec()
-         .then((room) => res.json(room))
+         .then((room) => res.json())
          .catch((err) => next(err));
    });
 

@@ -35,7 +35,7 @@ class RoomPage extends Component {
       super(props);
 
       this.state = {
-         currentRoom: null,
+         currentRoom: {},
          rooms: []
       };
 
@@ -53,7 +53,7 @@ class RoomPage extends Component {
    componentDidMount() {
 
       //const { match: { params } } = this.props;
-      const { id } = this.props.match.params
+      //const { id } = this.props.match.params
       
       /*
       const {id} = this.props.match.params
@@ -72,11 +72,11 @@ class RoomPage extends Component {
             });
          });
          
-      fetch('/api/rooms/${id}', { method: 'GET' })
+      fetch('/api/rooms/'+this.props.match.params.id, { method: 'GET' })
          .then(res => res.json())
          .then(json => {
             this.setState({
-               currentRoom: json
+               currentRoom: json.data
             });
          });
     
@@ -92,6 +92,7 @@ class RoomPage extends Component {
             <span>{id_test}</span>
             <p>Current Room:</p>
             <span>{this.state.currentRoom}</span>
+            <span>{this.state.currentRoom.name}</span>
          </div>
       );
    }
