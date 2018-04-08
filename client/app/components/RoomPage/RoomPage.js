@@ -91,7 +91,6 @@ class RoomPage extends Component {
             <p>Hello World</p>
             <span>{id_test}</span>
             <p>Current Room:</p>
-            <span>{this.state.currentRoom}</span>
             <span>{this.state.currentRoom.name}</span>
          </div>
       );
