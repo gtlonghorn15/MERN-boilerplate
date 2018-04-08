@@ -9,7 +9,7 @@ module.exports = (app) => {
    });
    
    app.get('/api/rooms/:id', (req, res, next) => {
-      Room.findById(req.params.id)
+      Room.findById({ _id: req.params.id })
          .exec()
          .then((room) => res.json(room))
          .catch((err) => next(err));
