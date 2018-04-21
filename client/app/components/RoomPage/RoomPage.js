@@ -10,7 +10,9 @@ class RoomPage extends Component {
 
       this.state = {
          currentRoom: {},
-         rooms: []
+         rooms: [],
+         roomcompanies: [],
+         roomlocations: []
       };
 
       //this.handleChange = this.handleChange.bind(this);
@@ -46,6 +48,22 @@ class RoomPage extends Component {
             });
          });
          
+      fetch('/api/roomlocations', { method: 'GET' })
+         .then(res => res.json())
+         .then(json => {
+            this.setState({
+               roomlocations: json
+            });
+         });
+         
+      fetch('/api/roomcompanies', { method: 'GET' })
+         .then(res => res.json())
+         .then(json => {
+            this.setState({
+               roomcompanies: json
+            });
+         });
+         
       fetch('/api/rooms/'+this.props.match.params.id, { method: 'GET' })
          .then(res => res.json())
          .then(json => {
@@ -60,7 +78,8 @@ class RoomPage extends Component {
       const {match} = this.props
       const id_test = match.params.id
       const filter_room = this.state.rooms.filter(room => room._id == id_test)
-      const room_properties = filter_room.map((room,i) => (<li key={i}><span>{room.name}</span></li>))
+      const filter_location = this.state.roomlocations.filter(roomloc => filter_room.includes(roomloc._id))
+      //const room_properties = filter_room.map((room,i) => (<li key={i}><span>{room.name}</span></li>))
 
       return (
          <div>
@@ -75,6 +94,15 @@ class RoomPage extends Component {
                      <li>Max Players: {room.max_players}</li>
                      <li>Completion Percentage: {room.reported_completion_percentage}</li>
                      <li>Difficulty: {room.reported_difficulty}</li>
+                  </div>
+               )) }
+            </ul>
+            <ul>
+               { filter_location.map((roomloc, i) => (
+                  <div key={i}>
+                     <li>Name: {roomloc.name}</li>
+                     <li>Company ID: {roomloc.company_id}</li>
+                     <li>Address ID: {roomloc.address_id}</li>
                   </div>
                )) }
             </ul>
