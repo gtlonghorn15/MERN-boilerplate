@@ -97,7 +97,7 @@ class RoomPage extends Component {
             <p>Hello World</p>
             <span>{id_test}</span>
             <p>Current Room:</p>
-            <span>{this.state.currentRoom.length}</span>
+            <span>{this.state.rooms.length}</span>
             
             <p>Rooms:</p>
 
@@ -105,8 +105,6 @@ class RoomPage extends Component {
                { this.state.rooms.map((room, i) => (
                   <li key={i}>
                      <span>{room.name}</span>
-                     <span>{room.id}</span>
-                     <span>{id}</span>
                      <span>{room._id}</span>
                   </li>
                )) }
