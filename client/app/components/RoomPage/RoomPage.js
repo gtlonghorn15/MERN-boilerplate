@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import 'whatwg-fetch';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom';
+
+const columns_custom = [{
+   Header: 'Location Name',
+   accessor: 'name'
+}]
 
 class RoomPage extends Component {
    constructor(props) {
@@ -78,7 +83,9 @@ class RoomPage extends Component {
       const {match} = this.props
       const id_test = match.params.id
       const filter_room = this.state.rooms.filter(room => room._id == id_test)
-      const filter_location = this.state.roomlocations.filter(roomloc => filter_room.includes(roomloc._id))
+      var location_id = filter_room.map(room => room.location_id)
+      const filter_location = this.state.roomlocations.filter(roomloc => roomloc._id == location_id)
+      //const filter_location = this.state.roomlocations.filter(roomloc => roomloc.name == 'rooma')
       //const room_properties = filter_room.map((room,i) => (<li key={i}><span>{room.name}</span></li>))
 
       return (
@@ -97,6 +104,13 @@ class RoomPage extends Component {
                   </div>
                )) }
             </ul>
+            <ReactTable
+               data={filter_location}
+               columns={columns_custom}
+               pageSize={2}
+            />
+            <h1>Location:</h1>
+            <span>{location_id}</span>
             <ul>
                { filter_location.map((roomloc, i) => (
                   <div key={i}>
