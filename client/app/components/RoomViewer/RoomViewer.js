@@ -3,6 +3,7 @@ import 'whatwg-fetch';
 import ReactTable from 'react-table';
 //import './RoomViewer.css'
 import 'react-table/react-table.css';
+import { Link } from 'react-router-dom';
 
 const extract = (str, pattern) => (str.match(pattern) || []).pop() || '';
 const extractAlphanum = (str) => extract(str, "[0-9a-zA-Z]+");
@@ -10,7 +11,8 @@ const limitLength = (str, length) => str.substring(0, length);
 
 const columns_room = [{
    Header: 'Escape Room Name',
-   accessor: 'name'
+   accessor: 'name',
+   Cell: ({row}) => (<Link target="_blank" to={{ pathname: '/roompage/' + row._id}}>{row.name}</Link>)
 }, {
    Header: 'Location ID',
    accessor: 'location_id'
