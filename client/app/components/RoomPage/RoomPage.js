@@ -85,6 +85,10 @@ class RoomPage extends Component {
    render() {
       const {match} = this.props
       const id_test = match.params.id
+      //const room_array = this.state.rooms.map((room) => <li key={room_.id}>{room.name}</li>)
+      //const room_array = this.state.rooms.map(room => ({value: room._id, text: room.name}))
+      const filter_room = this.state.rooms.filter(room => room._id == id_test)
+      const room_properties = filter_room.map((room,i) => (<li key={i}><span>{room.name}</span></li>))
       //var data_test = jQuery.parseJSON(this.state.rooms)
       //var index_test = data_test.map(function(d) { return d['name']; }).indexOf('test')
       //const room_test = _.findWhere(this.state.rooms, {id: id_test})
@@ -94,19 +98,17 @@ class RoomPage extends Component {
       return (
          <div>
             <h1>Room:</h1>
-            <p>Hello World</p>
-            <span>{id_test}</span>
-            <p>Current Room:</p>
-            <span>{this.state.rooms.length}</span>
-            
-            <p>Rooms:</p>
 
             <ul>
-               { this.state.rooms.map((room, i) => (
-                  <li key={i}>
-                     <span>{room.name}</span>
-                     <span> {room._id}</span>
-                  </li>
+               { filter_room.map((room, i) => (
+                  <div key={i}>
+                     <li>Name: {room.name}</li>
+                     <li>Location ID: {room.location_id}</li>
+                     <li>Time Available: {room.time_available_minutes}</li>
+                     <li>Max Players: {room.max_players}</li>
+                     <li>Completion Percentage: {room.reported_completion_percentage}</li>
+                     <li>Difficulty: {room.reported_difficulty}</li>
+                  </div>
                )) }
             </ul>
          </div>
