@@ -105,7 +105,7 @@ class RoomPage extends Component {
                { this.state.rooms.map((room, i) => (
                   <li key={i}>
                      <span>{room.name}</span>
-                     <span>{room._id}</span>
+                     <span> {room._id}</span>
                   </li>
                )) }
             </ul>
