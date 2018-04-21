@@ -118,6 +118,7 @@ class RoomViewer extends Component {
             <ReactTable
                data={this.state.rooms}
                columns={columns_room}
+               pageSize={this.state.rooms.length}
             />
             <p>Rooms:</p>
 
