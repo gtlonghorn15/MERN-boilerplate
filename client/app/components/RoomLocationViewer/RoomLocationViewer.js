@@ -33,10 +33,10 @@ const columns_location = [{
 }, {
    Header: 'Location Email',
    accessor: 'email'
-},  {
+}, {
    Header: 'Address',
    accessor: 'address'
-},
+}, {
    Header: 'Booking URL',
    accessor: 'booking_URL'
 }]
@@ -166,17 +166,17 @@ class RoomLocationViewer extends Component {
                )) }
             </ul>
             <form target="_blank" method="post" action="/api/roomlocations">
-               <span>Location Name: <input type="text" name="name" /></span>
-               <span>Company Name: <select name="company_id">
+               <p>Location Name: <input type="text" name="name" /></p>
+               <p>Company Name: <select name="company_id">
                   { this.state.roomcompanies.map((roomcompany, i) => (
                      <option key={i} value={roomcompany._id}>{roomcompany.name}</option>
                   )) }
-               </select></span>
-               <span>Website: <input type="text" name="website" /></span>
-               <span>Telephone: <input type="number" name="tel" /></span>
-               <span>Email: <input type="text" name="email" /></span>
-               <span>Address: <input type="text" name="address" /></span>
-               <span>Booking URL: <input type="text" name="booking_URL" /></span>
+               </select></p>
+               <p>Website: <input type="text" name="website" /></p>
+               <p>Telephone: <input type="number" name="tel" /></p>
+               <p>Email: <input type="text" name="email" /></p>
+               <p>Address: <input type="text" name="address" /></p>
+               <p>Booking URL: <input type="text" name="booking_URL" /></p>
                <input type="submit" />
             </form>
             <ReactTable

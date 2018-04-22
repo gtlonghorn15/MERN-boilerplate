@@ -35,6 +35,9 @@ const columns_room = [{
    Header: 'Difficulty',
    accessor: 'reported_difficulty'
 }, {
+   Header: 'Price',
+   accessor: 'price'
+}, {
    Header: 'Room URL',
    accessor: 'room_URL'
 }, {
@@ -140,20 +143,21 @@ class RoomViewer extends Component {
                )) }
             </ul>
             <form target="_blank" method="post" action="/api/rooms">
-               <span>Room Name: <input type="text" name="name" /></span>
-               <span><select name="location_id">
+               <p>Room Name: <input type="text" name="name" /></p>
+               <p>Location Name: <select name="location_id">
                   { this.state.roomlocations.map((roomlocation, i) => (
                      <option key={i} value={roomlocation._id}>{roomlocation.name}</option>
                   )) }
-               </select></span>
-               <span>Time Available: <input type="number" name="time_available_minutes" /></span>
-               <span>Max Players: <input type="number" name="max_players" /></span>
-               <span>Min Players: <input type="number" name="min_players" /></span>
-               <span>Completion Percentage: <input type="number" name="reported_completion_percentage" /></span>
-               <span>Difficulty: <input type="number" name="reported_difficulty" /></span>
-               <span>Room URL: <input type="text" name="room_URL" /></span>
-               <span>Image URL: <input type="text" name="image_URL" /></span>
-               <span>Notes: <input type="text" name="notes" /></span>
+               </select></p>
+               <p>Time Available: <input type="number" name="time_available_minutes" /></p>
+               <p>Max Players: <input type="number" name="max_players" /></p>
+               <p>Min Players: <input type="number" name="min_players" /></p>
+               <p>Completion Percentage: <input type="number" name="reported_completion_percentage" /></p>
+               <p>Difficulty: <input type="number" name="reported_difficulty" /></p>
+               <p>Price: <input type="number" name="price" /></p>
+               <p>Room URL: <input type="text" name="room_URL" /></p>
+               <p>Image URL: <input type="text" name="image_URL" /></p>
+               <p>Notes: <input type="text" name="notes" /></p>
                <input type="submit" />
             </form>
          </div>
