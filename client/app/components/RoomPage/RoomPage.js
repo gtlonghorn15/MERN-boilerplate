@@ -4,11 +4,6 @@ import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import { withRouter, Link } from 'react-router-dom';
 
-const columns_custom = [{
-   Header: 'Location Name',
-   accessor: 'name'
-}]
-
 class RoomPage extends Component {
    constructor(props) {
       super(props);
@@ -101,14 +96,12 @@ class RoomPage extends Component {
                      <li>Max Players: {room.max_players}</li>
                      <li>Completion Percentage: {room.reported_completion_percentage}</li>
                      <li>Difficulty: {room.reported_difficulty}</li>
+                     <li>Price: {room.price}</li>
+                     <li>Room Information: {room.room_URL}</li>
+                     <li>Notes: {room.notes}</li>
                   </div>
                )) }
             </ul>
-            <ReactTable
-               data={filter_location}
-               columns={columns_custom}
-               pageSize={2}
-            />
             <h1>Location:</h1>
             <span>{location_id}</span>
             <ul>
@@ -117,6 +110,11 @@ class RoomPage extends Component {
                      <li>Name: {roomloc.name}</li>
                      <li>Company ID: {roomloc.company_id}</li>
                      <li>Address ID: {roomloc.address_id}</li>
+                     <li>Website: {roomloc.website}</li>
+                     <li>Booking URL: {roomloc.booking_URL}</li>
+                     <li>Address: {roomloc.address}</li>
+                     <li>Telephone: {roomloc.tel}</li>
+                     <li>Email: {roomloc.email}</li>
                   </div>
                )) }
             </ul>

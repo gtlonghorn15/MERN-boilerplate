@@ -39,7 +39,8 @@ const columns_room = [{
    accessor: 'price'
 }, {
    Header: 'Room URL',
-   accessor: 'room_URL'
+   accessor: 'room_URL',
+   Cell: ({row}) => (<Link target="_blank" to={{ pathname: row.room_URL}}>{row.room_URL}</Link>)
 }, {
    Header: 'Image URL',
    accessor: 'image_URL'
