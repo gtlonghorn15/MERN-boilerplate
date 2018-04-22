@@ -85,7 +85,7 @@ class RoomPage extends Component {
       const filter_room = this.state.rooms.filter(room => room._id == id_test)
       var location_id = filter_room.map(room => room.location_id)
       const filter_location = this.state.roomlocations.filter(roomloc => roomloc._id == location_id)
-      var company_id = filter_room.map(roomcomp => roomcomp.company_id)
+      var company_id = filter_location.map(roomloc => roomloc.company_id)
       const filter_company = this.state.roomcompanies.filter(roomcomp => roomcomp._id == company_id)
       //const filter_location = this.state.roomlocations.filter(roomloc => roomloc.name == 'rooma')
       //const room_properties = filter_room.map((room,i) => (<li key={i}><span>{room.name}</span></li>))
