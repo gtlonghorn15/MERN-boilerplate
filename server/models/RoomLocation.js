@@ -18,6 +18,12 @@ const RoomLocationSchema = new mongoose.Schema({
    },
    email: {
       type: String
+   },
+   address: {
+      type: String
+   },
+   booking_URL: {
+      type: String
    }
 });
 

@@ -85,10 +85,8 @@ class RoomPage extends Component {
       const filter_room = this.state.rooms.filter(room => room._id == id_test)
       var location_id = filter_room.map(room => room.location_id)
       const filter_location = this.state.roomlocations.filter(roomloc => roomloc._id == location_id)
-      var company_id = filter_location.map(roomloc => roomloc.company_id)
-      const filter_company = this.state.roomcompanies.filter(roomcomp => roomcomp._id == company_id)
-      //const filter_location = this.state.roomlocations.filter(roomloc => roomloc.name == 'rooma')
-      //const room_properties = filter_room.map((room,i) => (<li key={i}><span>{room.name}</span></li>))
+      //var company_id = filter_location.map(roomloc => roomloc.company_id)
+      //const filter_company = this.state.roomcompanies.filter(roomcomp => roomcomp._id == company_id)
 
       return (
          <div>
@@ -119,16 +117,6 @@ class RoomPage extends Component {
                      <li>Name: {roomloc.name}</li>
                      <li>Company ID: {roomloc.company_id}</li>
                      <li>Address ID: {roomloc.address_id}</li>
-                  </div>
-               )) }
-            </ul>
-            <h1>Company:</h1>
-            <span>{company_id}</span>
-            <ul>
-               { filter_company.map((roomcomp, i) => (
-                  <div key={i}>
-                     <li>Name: {roomcomp.name}</li>
-                     <li>Website: {roomcomp.website}</li>
                   </div>
                )) }
             </ul>

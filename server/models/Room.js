@@ -22,6 +22,18 @@ const RoomSchema = new mongoose.Schema({
    reported_difficulty: {
       type: Number,
       default: 0
+   },
+   price: {
+      type: Number,
+   },
+   room_URL: {
+      type: String,
+   },
+   image_URL: {
+      type: String,
+   },
+   notes: {
+      type: String,
    }
 });
 

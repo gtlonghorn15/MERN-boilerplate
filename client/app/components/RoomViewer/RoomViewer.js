@@ -34,6 +34,15 @@ const columns_room = [{
 }, {
    Header: 'Difficulty',
    accessor: 'reported_difficulty'
+}, {
+   Header: 'Room URL',
+   accessor: 'room_URL'
+}, {
+   Header: 'Image URL',
+   accessor: 'image_URL'
+}, {
+   Header: 'Notes',
+   accessor: 'notes'
 }]
 
 class RoomViewer extends Component {
@@ -131,17 +140,20 @@ class RoomViewer extends Component {
                )) }
             </ul>
             <form target="_blank" method="post" action="/api/rooms">
-               <input type="text" name="name" />
-               <select name="location_id">
+               <span>Room Name: <input type="text" name="name" /></span>
+               <span><select name="location_id">
                   { this.state.roomlocations.map((roomlocation, i) => (
                      <option key={i} value={roomlocation._id}>{roomlocation.name}</option>
                   )) }
-               </select>
-               <input type="number" name="time_available_minutes" />
-               <input type="number" name="max_players" />
-               <input type="number" name="min_players" />
-               <input type="number" name="reported_completion_percentage" />
-               <input type="number" name="reported_difficulty" />
+               </select></span>
+               <span>Time Available: <input type="number" name="time_available_minutes" /></span>
+               <span>Max Players: <input type="number" name="max_players" /></span>
+               <span>Min Players: <input type="number" name="min_players" /></span>
+               <span>Completion Percentage: <input type="number" name="reported_completion_percentage" /></span>
+               <span>Difficulty: <input type="number" name="reported_difficulty" /></span>
+               <span>Room URL: <input type="text" name="room_URL" /></span>
+               <span>Image URL: <input type="text" name="image_URL" /></span>
+               <span>Notes: <input type="text" name="notes" /></span>
                <input type="submit" />
             </form>
          </div>
