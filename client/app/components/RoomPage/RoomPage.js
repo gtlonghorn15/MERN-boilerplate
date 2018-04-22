@@ -94,10 +94,10 @@ class RoomPage extends Component {
                      <li>Location ID: {room.location_id}</li>
                      <li>Time Available: {room.time_available_minutes} minutes</li>
                      <li>Players: {room.min_players} - {room.max_players} players</li>
-                     <li>Completion Percentage: {room.reported_completion_percentage}%</li>
+                     <li>Completion Percentage: {room.reported_completion_percentage}</li>
                      <li>Difficulty: {room.reported_difficulty}</li>
-                     <li>Price: ${room.price}</li>
-                     <li>Room Information: <Link target="_blank" to={{ pathname: row.room_URL}}>{row.room_URL}</Link></li>
+                     <li>Price: {room.price}</li>
+                     <li>Room Information: <Link target="_blank" to={{ pathname: room.room_URL}}>{room.room_URL}</Link></li>
                      <li>Notes: {room.notes}</li>
                      <img src={room.image_URL} alt="Room Header Image"/>
                   </div>
@@ -111,8 +111,8 @@ class RoomPage extends Component {
                      <li>Name: {roomloc.name}</li>
                      <li>Company ID: {roomloc.company_id}</li>
                      <li>Address ID: {roomloc.address_id}</li>
-                     <li>Website: <Link target="_blank" to={{ pathname: row.website}}>{row.website}</Link></li>
-                     <li>Booking URL: <Link target="_blank" to={{ pathname: row.booking_URL}}>{row.booking_URL}</Link></li>
+                     <li>Website: <Link target="_blank" to={{ pathname: roomloc.website}}>{roomloc.website}</Link></li>
+                     <li>Booking URL: <Link target="_blank" to={{ pathname: roomloc.booking_URL}}>{roomloc.booking_URL}</Link></li>
                      <li>Address: {roomloc.address}</li>
                      <li>Telephone: {roomloc.tel}</li>
                      <li>Email: {roomloc.email}</li>
