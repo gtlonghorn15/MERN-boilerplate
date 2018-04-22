@@ -99,6 +99,7 @@ class RoomPage extends Component {
                      <li>Price: {room.price}</li>
                      <li>Room Information: {room.room_URL}</li>
                      <li>Notes: {room.notes}</li>
+                     <img src={room.image_URL} alt="Room Header Image"/>
                   </div>
                )) }
             </ul>
