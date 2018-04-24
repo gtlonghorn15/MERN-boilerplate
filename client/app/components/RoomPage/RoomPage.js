@@ -17,6 +17,8 @@ class RoomPage extends Component {
 
       //this.handleChange = this.handleChange.bind(this);
       this.componentDidMount = this.componentDidMount.bind(this);
+      this.incrementRating = this.incrementRating.bind(this);
+      this._modifyRoom = this._modifyRoom.bind(this);
    }
    
    /*
@@ -73,6 +75,30 @@ class RoomPage extends Component {
          });
     
    }
+   
+   incrementRating(index) {
+      const id = this.state.rooms[index]._id;
+
+      fetch(`/api/rooms/${id}/increment`, { method: 'PUT' })
+         .then(res => res.json())
+         .then(json => {
+            this._modifyRoom(index, json);
+         });
+   }
+   
+   _modifyRoom(index, data) {
+      let prevData = this.state.rooms;
+
+      if (data) {
+         prevData[index] = data;
+      } else {
+         prevData.splice(index, 1);
+      }
+
+      this.setState({
+         rooms: prevData
+      });
+   }
 
    render() {
       const {match} = this.props
@@ -85,6 +111,16 @@ class RoomPage extends Component {
 
       return (
          <div>
+            <p>Rating:</p>
+
+               <ul>
+                  { this.state.rooms.map((room, i) => (
+                     <li key={i}>
+                        <span>{room.count} </span>
+                        <button onClick={() => this.incrementRating(i)}>+</button>
+                     </li>
+                  )) }
+               </ul>
             <h1>Room:</h1>
 
             <ul>

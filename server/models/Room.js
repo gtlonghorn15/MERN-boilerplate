@@ -34,6 +34,14 @@ const RoomSchema = new mongoose.Schema({
    },
    notes: {
       type: String,
+   },
+   num_ratings: {
+      type: Number,
+      default: 0
+   },
+   total_rating: {
+      type: Number,
+      default: 0
    }
 });
 

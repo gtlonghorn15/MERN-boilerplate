@@ -29,4 +29,17 @@ module.exports = (app) => {
          .then((room) => res.json())
          .catch((err) => next(err));
    });
+   
+   app.put('/api/rooms/:id/increment', (req, res, next) => {
+      Room.findById(req.params.id)
+         .exec()
+         .then((room) => {
+           room.num_ratings++;
+
+           room.save()
+             .then(() => res.json(room))
+             .catch((err) => next(err));
+         })
+         .catch((err) => next(err));
+   });
 };
