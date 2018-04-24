@@ -21,6 +21,7 @@ import Dropdown from './components/Dropdown/Dropdown';
 import RoomViewer from './components/RoomViewer/RoomViewer';
 import RoomLocationViewer from './components/RoomLocationViewer/RoomLocationViewer';
 import RoomPage from './components/RoomPage/RoomPage';
+import SubmitRoom from './components/SubmitRoom/SubmitRoom';
 
 import './styles/styles.scss';
 
@@ -36,6 +37,7 @@ render((
             <Route path="/roomviewer" component={RoomViewer}/>
             <Route path="/roomlocationviewer" component={RoomLocationViewer}/>
             <Route path="/roompage/:id" component={RoomPage}/>
+            <Route path="/submitroom" component={SubmitRoom)/>
             <Route component={NotFound}/>
          </Switch>
       </App>

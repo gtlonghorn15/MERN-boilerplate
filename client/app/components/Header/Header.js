@@ -10,22 +10,7 @@ const Header = () => (
                <Link to="/">Rate Your Escape</Link>
             </td>
             <td>
-               <Link to="/helloworld">Hello World</Link>
-            </td>
-            <td>
-               <Link to="/stars">Stars</Link>
-            </td>
-            <td>
-               <Link to="/textbox">TextBox</Link>
-            </td>
-            <td>
-               <Link to="/dropdown">Dropdown</Link>
-            </td>
-            <td>
-               <Link to="/roomviewer">RoomViewer</Link>
-            </td>
-            <td>
-               <Link to="/roomlocationviewer">RoomLocationViewer</Link>
+               <Link to="/submitroom">Submit Room</Link>
             </td>
          </tr>
       </table>

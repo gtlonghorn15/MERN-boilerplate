@@ -1,76 +1,118 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
+import ReactTable from 'react-table';
+//import './RoomViewer.css'
+import 'react-table/react-table.css';
+import { Link } from 'react-router-dom';
 
-class Home extends Component {
+const extract = (str, pattern) => (str.match(pattern) || []).pop() || '';
+const extractAlphanum = (str) => extract(str, "[0-9a-zA-Z]+");
+const limitLength = (str, length) => str.substring(0, length);
+
+const columns_room = [{
+   Header: 'Escape Room Name',
+   accessor: 'name',
+   Cell: ({row}) => (<Link target="_blank" to={{ pathname: '/roompage/' + row._id}}>{row.name}</Link>)
+}, {
+   Header: 'Number of minutes',
+   accessor: 'time_available_minutes'
+}, {
+   Header: 'Max Players',
+   accessor: 'max_players'
+}, {
+   Header: 'Min Players',
+   accessor: 'min_players'
+}, {
+   Header: 'Completion Percentage',
+   accessor: 'reported_completion_percentage'
+}, {
+   Header: 'Difficulty',
+   accessor: 'reported_difficulty'
+}, {
+   Header: 'Price',
+   accessor: 'price'
+}, {
+   Header: 'Notes',
+   accessor: 'notes'
+}, {
+   Header: 'Number of Ratings',
+   accessor: 'num_ratings'
+}, {
+   Header: 'Total Rating',
+   accessor: 'total_rating'
+}, {
+   Header: 'Room URL',
+   accessor: 'room_URL',
+   Cell: ({row}) => (<Link target="_blank" to={{ pathname: row.room_URL}}>{row.room_URL}</Link>)
+}, {
+   Header: 'Image URL',
+   accessor: 'image_URL'
+}]
+
+class RoomViewer extends Component {
    constructor(props) {
       super(props);
 
       this.state = {
-         counters: []
+         rooms: [],
+         roomlocations: []
       };
 
-      this.newCounter = this.newCounter.bind(this);
-      this.incrementCounter = this.incrementCounter.bind(this);
-      this.decrementCounter = this.decrementCounter.bind(this);
-      this.deleteCounter = this.deleteCounter.bind(this);
-
-      this._modifyCounter = this._modifyCounter.bind(this);
+      //this.handleChange = this.handleChange.bind(this);
+      this.componentDidMount = this.componentDidMount.bind(this);
+      this.newRoom = this.newRoom.bind(this);
+      this.deleteRoom = this.deleteRoom.bind(this);
+      this._modifyRoom = this._modifyRoom.bind(this);
    }
+   
+   /*
+   handleChange(event) {
+      this.setState({roomName: limitLength(extractAlphanum(event.target.roomName), 25)});
+      this.setState({roomAddress: limitLength(extractAlphanum(event.target.roomAddress), 25)});
+   }
+   */
 
    componentDidMount() {
-      fetch('/api/counters')
+      fetch('/api/rooms', { method: 'GET' })
          .then(res => res.json())
          .then(json => {
             this.setState({
-               counters: json
+               rooms: json
+            });
+         });
+      fetch('/api/roomlocations', { method: 'GET' })
+         .then(res => res.json())
+         .then(json => {
+            this.setState({
+               roomlocations: json
             });
          });
    }
 
-   newCounter() {
-      fetch('/api/counters', { method: 'POST' })
+   newRoom() {
+      fetch('/api/rooms', { method: 'POST' })
          .then(res => res.json())
          .then(json => {
-            let data = this.state.counters;
+            let data = this.state.rooms;
             data.push(json);
 
             this.setState({
-               counters: data
+               rooms: data
             });
          });
    }
 
-   incrementCounter(index) {
-      const id = this.state.counters[index]._id;
+   deleteRoom(index) {
+      const id = this.state.rooms[index]._id;
 
-      fetch(`/api/counters/${id}/increment`, { method: 'PUT' })
-         .then(res => res.json())
-         .then(json => {
-            this._modifyCounter(index, json);
-         });
-   }
-
-   decrementCounter(index) {
-      const id = this.state.counters[index]._id;
-
-      fetch(`/api/counters/${id}/decrement`, { method: 'PUT' })
-         .then(res => res.json())
-         .then(json => {
-            this._modifyCounter(index, json);
-         });
-   }
-
-   deleteCounter(index) {
-      const id = this.state.counters[index]._id;
-
-      fetch(`/api/counters/${id}`, { method: 'DELETE' })
+      fetch(`/api/rooms/${id}`, { method: 'DELETE' })
          .then(_ => {
-            this._modifyCounter(index, null);
+            this._modifyRoom(index, null);
          });
    }
 
-   _modifyCounter(index, data) {
-      let prevData = this.state.counters;
+   _modifyRoom(index, data) {
+      let prevData = this.state.rooms;
 
       if (data) {
          prevData[index] = data;
@@ -79,30 +121,21 @@ class Home extends Component {
       }
 
       this.setState({
-         counters: prevData
+         rooms: prevData
       });
    }
 
    render() {
       return (
          <div>
-            <p>Counters:</p>
-
-            <ul>
-               { this.state.counters.map((counter, i) => (
-                  <li key={i}>
-                     <span>{counter.count} </span>
-                     <button onClick={() => this.incrementCounter(i)}>+</button>
-                     <button onClick={() => this.decrementCounter(i)}>-</button>
-                     <button onClick={() => this.deleteCounter(i)}>x</button>
-                  </li>
-               )) }
-            </ul>
-
-            <button onClick={this.newCounter}>New counter</button>
+            <ReactTable
+               data={this.state.rooms}
+               columns={columns_room}
+               pageSize={this.state.rooms.length}
+            />
          </div>
       );
    }
 }
 
-export default Home;
+export default RoomViewer;
