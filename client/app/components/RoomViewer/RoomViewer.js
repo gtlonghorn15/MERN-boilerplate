@@ -48,10 +48,10 @@ const columns_room = [{
    Header: 'Notes',
    accessor: 'notes'
 }, {
-   Header: 'Number of Ratings'
+   Header: 'Number of Ratings',
    accessor: 'num_ratings'
 }, {
-   Header: 'Total Rating'
+   Header: 'Total Rating',
    accessor: 'total_rating'
 }]
 
