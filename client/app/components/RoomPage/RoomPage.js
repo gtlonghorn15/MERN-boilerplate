@@ -3,6 +3,7 @@ import 'whatwg-fetch';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import { withRouter, Link } from 'react-router-dom';
+import StarRatingComponent from 'react-star-rating-component';
 
 class RoomPage extends Component {
    constructor(props) {
@@ -12,13 +13,15 @@ class RoomPage extends Component {
          currentRoom: {},
          rooms: [],
          roomcompanies: [],
-         roomlocations: []
+         roomlocations: [],
+         roomRating: 0
       };
 
       //this.handleChange = this.handleChange.bind(this);
       this.componentDidMount = this.componentDidMount.bind(this);
       this.incrementRating = this.incrementRating.bind(this);
       this._modifyRoom = this._modifyRoom.bind(this);
+      this.onStarClickRoom = this.onStarClickRoom.bind(this);
    }
    
    /*
@@ -76,6 +79,10 @@ class RoomPage extends Component {
     
    }
    
+   onStarClickRoom(nextValue, prevValue, name) {
+      this.setState({roomRating: nextValue});
+   }
+   
    incrementRating(index) {
       const {match} = this.props;
       const room_id = match.params.id;
@@ -115,10 +122,17 @@ class RoomPage extends Component {
       const filter_location = this.state.roomlocations.filter(roomloc => roomloc._id == location_id)
       //var company_id = filter_location.map(roomloc => roomloc.company_id)
       //const filter_company = this.state.roomcompanies.filter(roomcomp => roomcomp._id == company_id)
+      const { roomRating } = this.state;
 
       return (
          <div>
-            <h1>Rating:</h1>
+            <h2>Room Rating: {this.state.roomRating}</h2>
+					<StarRatingComponent 
+						name="roomrank" 
+						starCount={5}
+						value={this.state.roomRating}
+						onStarClick={this.onStarClickRoom.bind(this)}
+					/>
 
             <ul>
                { filter_room.map((room, i) => (
