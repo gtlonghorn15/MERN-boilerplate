@@ -35,7 +35,7 @@ module.exports = (app) => {
          .exec()
          .then((room) => {
            room.num_ratings++;
-           room.total_rating+=req.params.num;
+           room.total_rating+=parseInt(req.params.num);
 
            room.save()
              .then(() => res.json(room))
