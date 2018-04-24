@@ -111,16 +111,16 @@ class RoomPage extends Component {
 
       return (
          <div>
-            <p>Rating:</p>
+            <h1>Rating:</h1>
 
-               <ul>
-                  { this.state.rooms.map((room, i) => (
-                     <li key={i}>
-                        <span>{room.count} </span>
-                        <button onClick={() => this.incrementRating(i)}>+</button>
-                     </li>
-                  )) }
-               </ul>
+            <ul>
+               { this.state.rooms.map((room, i) => (
+                  <li key={i}>
+                     <span>{room.num_ratings} </span>
+                     <button onClick={() => this.incrementRating(i)}>+</button>
+                  </li>
+               )) }
+            </ul>
             <h1>Room:</h1>
 
             <ul>
