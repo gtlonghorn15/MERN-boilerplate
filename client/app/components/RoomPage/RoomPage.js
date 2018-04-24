@@ -83,7 +83,7 @@ class RoomPage extends Component {
       const find_room = this.state.rooms.filter(room => room._id == room_id);
       const id = find_room[index]._id;
 
-      fetch(`/api/rooms/${id}/increment/${num}`, { method: 'PUT' })
+      fetch(`/api/rooms/${id}&${num}/increment`, { method: 'PUT' })
          .then(res => res.json())
          .then(json => {
             this._modifyRoom(index, json);

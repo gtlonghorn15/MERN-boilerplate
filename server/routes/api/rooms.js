@@ -30,7 +30,7 @@ module.exports = (app) => {
          .catch((err) => next(err));
    });
    
-   app.put('/api/rooms/:id/increment/:num', (req, res, next) => {
+   app.put('/api/rooms/:id&:num/increment', (req, res, next) => {
       Room.findById(req.params.id)
          .exec()
          .then((room) => {
