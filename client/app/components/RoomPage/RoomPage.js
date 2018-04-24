@@ -77,7 +77,10 @@ class RoomPage extends Component {
    }
    
    incrementRating(index) {
-      const id = this.state.rooms[index]._id;
+      const {match} = this.props;
+      const room_id = match.params.id;
+      const find_room = this.state.rooms.filter(room => room._id == room_id);
+      const id = find_room[index]._id;
 
       fetch(`/api/rooms/${id}/increment`, { method: 'PUT' })
          .then(res => res.json())
@@ -87,7 +90,11 @@ class RoomPage extends Component {
    }
    
    _modifyRoom(index, data) {
-      let prevData = this.state.rooms;
+      const {match} = this.props;
+      const room_id = match.params.id;
+      const find_room = this.state.rooms.filter(room=> room_.id == room_id);
+      //let prevData = this.state.rooms;
+      let prevData = find_room;
 
       if (data) {
          prevData[index] = data;
@@ -103,7 +110,7 @@ class RoomPage extends Component {
    render() {
       const {match} = this.props
       const id_test = match.params.id
-      const filter_room = this.state.rooms.filter(room => room._id == id_test)
+      var filter_room = this.state.rooms.filter(room => room._id == id_test)
       var location_id = filter_room.map(room => room.location_id)
       const filter_location = this.state.roomlocations.filter(roomloc => roomloc._id == location_id)
       //var company_id = filter_location.map(roomloc => roomloc.company_id)
@@ -114,7 +121,7 @@ class RoomPage extends Component {
             <h1>Rating:</h1>
 
             <ul>
-               { this.state.rooms.map((room, i) => (
+               { filter_room.map((room, i) => (
                   <li key={i}>
                      <span>{room.num_ratings} </span>
                      <button onClick={() => this.incrementRating(i)}>+</button>
