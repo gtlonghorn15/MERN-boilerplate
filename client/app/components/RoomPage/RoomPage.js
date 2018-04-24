@@ -81,33 +81,34 @@ class RoomPage extends Component {
    
    onStarClickRoom(nextValue, prevValue, name) {
       this.setState({roomRating: nextValue});
+      this.incrementRating(roomRating)
    }
    
-   incrementRating(index) {
+   incrementRating(num) {
       const {match} = this.props;
       const room_id = match.params.id;
-      const find_room = this.state.rooms.filter(room => room._id == room_id);
-      const id = find_room[index]._id;
+      //const find_room = this.state.rooms.filter(room => room._id == room_id);
+      //const id = find_room[index]._id;
 
-      fetch(`/api/rooms/${id}/increment`, { method: 'PUT' })
+      fetch(`/api/rooms/${room_id}/increment/{num}`, { method: 'PUT' })
          .then(res => res.json())
          .then(json => {
-            this._modifyRoom(index, json);
+            this._modifyRoom(json);
          });
    }
    
-   _modifyRoom(index, data) {
+   _modifyRoom(data) {
       const {match} = this.props;
       const room_id = match.params.id;
       const find_room = this.state.rooms.filter(room=> room_.id == room_id);
       //let prevData = this.state.rooms;
       let prevData = find_room;
 
-      if (data) {
-         prevData[index] = data;
-      } else {
-         prevData.splice(index, 1);
-      }
+      //if (data) {
+      //prevData[index] = data;
+      //} else {
+      //prevData.splice(index, 1);
+      //}
 
       this.setState({
          rooms: prevData
@@ -127,18 +128,18 @@ class RoomPage extends Component {
       return (
          <div>
             <h2>Room Rating: {this.state.roomRating}</h2>
-					<StarRatingComponent 
-						name="roomrank" 
-						starCount={5}
-						value={this.state.roomRating}
-						onStarClick={this.onStarClickRoom.bind(this)}
-					/>
 
             <ul>
                { filter_room.map((room, i) => (
                   <li key={i}>
                      <span>{room.num_ratings} </span>
-                     <button onClick={() => this.incrementRating(i)}>+</button>
+                     <button onClick={() => this.incrementRating(1)}>+</button>
+                  <StarRatingComponent 
+                     name="roomrank" 
+                     starCount={5}
+                     value={room.total_rating / room.num_ratings}
+                     onStarClick={this.onStarClickRoom.bind(this)}
+                  />
                   </li>
                )) }
             </ul>
