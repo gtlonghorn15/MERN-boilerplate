@@ -42,7 +42,7 @@ const columns_room = [{
    accessor: 'total_rating'
 }, {
    Header: 'Average Rating',
-   accessor: 'total_rating'
+   accessor: 'total_rating',
    Cell: ({row}) =>(<span>{row.total_rating / row.num_ratings}</span>)
 }, {
    Header: 'Room URL',
