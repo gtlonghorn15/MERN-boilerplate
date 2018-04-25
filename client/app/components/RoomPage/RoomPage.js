@@ -153,7 +153,7 @@ class RoomPage extends Component {
             <ul>
                { filter_location.map((roomloc, i) => (
                   <div key={i}>
-                     <li><strong>Name:</strong> {roomloc.name}</li>
+                     <li><strong>Name: {roomloc.name}</li>
                      <li><strong>Website:</strong> <Link target="_blank" to={{ pathname: roomloc.website}}>{roomloc.website}</Link></li>
                      <li><strong>Booking URL:</strong> <Link target="_blank" to={{ pathname: roomloc.booking_URL}}>{roomloc.booking_URL}</Link></li>
                      <li><strong>Address:</strong> {roomloc.address}</li>
