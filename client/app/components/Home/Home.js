@@ -15,7 +15,8 @@ const columns_room = [{
    Cell: ({row}) => (<Link target="_blank" to={{ pathname: '/roompage/' + row._id}}>{row.name}</Link>)
 }, {
    Header: 'Room ID',
-   accessor: '_id'
+   accessor: '_id',
+   show: false
 }, {
    Header: 'Number of minutes',
    accessor: 'time_available_minutes'
@@ -36,10 +37,12 @@ const columns_room = [{
    accessor: 'price'
 }, {
    Header: 'Number of Ratings',
-   accessor: 'num_ratings'
+   accessor: 'num_ratings',
+   show: false
 }, {
    Header: 'Total Rating',
-   accessor: 'total_rating'
+   accessor: 'total_rating',
+   show: false
 }, {
    Header: 'Average Rating (1-5)',
    accessor: 'total_rating',
@@ -50,7 +53,8 @@ const columns_room = [{
    Cell: ({row}) => (<Link target="_blank" to={{ pathname: row.room_URL}}>{row.room_URL}</Link>)
 }, {
    Header: 'Image URL',
-   accessor: 'image_URL'
+   accessor: 'image_URL',
+   show: false
 }]
 
 class RoomViewer extends Component {
