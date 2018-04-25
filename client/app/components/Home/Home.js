@@ -41,6 +41,10 @@ const columns_room = [{
    Header: 'Total Rating',
    accessor: 'total_rating'
 }, {
+   Header: 'Average Rating',
+   accessor: 'total_rating'
+   Cell: ({row}) =>(<span>{row.total_rating / row.num_ratings}</span>)
+}, {
    Header: 'Room URL',
    accessor: 'room_URL',
    Cell: ({row}) => (<Link target="_blank" to={{ pathname: row.room_URL}}>{row.room_URL}</Link>)
