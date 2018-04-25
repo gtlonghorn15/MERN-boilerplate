@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 import ReactTable from 'react-table';
-//import './RoomViewer.css'
 import 'react-table/react-table.css';
 import { Link } from 'react-router-dom';
 
@@ -9,7 +8,7 @@ const extract = (str, pattern) => (str.match(pattern) || []).pop() || '';
 const extractAlphanum = (str) => extract(str, "[0-9a-zA-Z]+");
 const limitLength = (str, length) => str.substring(0, length);
 
-class RoomViewer extends Component {
+class SubmitRoom extends Component {
    constructor(props) {
       super(props);
 
