@@ -14,6 +14,9 @@ const columns_room = [{
    accessor: 'name',
    Cell: ({row}) => (<Link target="_blank" to={{ pathname: '/roompage/' + row._id}}>{row.name}</Link>)
 }, {
+   Header: 'Room ID',
+   accesor: '_id'
+}, {
    Header: 'Number of minutes',
    accessor: 'time_available_minutes'
 }, {
