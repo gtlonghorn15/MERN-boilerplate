@@ -23,17 +23,14 @@ const columns_room = [{
    Header: 'Min Players',
    accessor: 'min_players'
 }, {
-   Header: 'Completion Percentage',
+   Header: 'Completion Percentage (%)',
    accessor: 'reported_completion_percentage'
 }, {
-   Header: 'Difficulty',
+   Header: 'Difficulty (1-5)',
    accessor: 'reported_difficulty'
 }, {
-   Header: 'Price',
+   Header: 'Price ($)',
    accessor: 'price'
-}, {
-   Header: 'Notes',
-   accessor: 'notes'
 }, {
    Header: 'Number of Ratings',
    accessor: 'num_ratings'
@@ -41,7 +38,7 @@ const columns_room = [{
    Header: 'Total Rating',
    accessor: 'total_rating'
 }, {
-   Header: 'Average Rating',
+   Header: 'Average Rating (1-5)',
    accessor: 'total_rating',
    Cell: ({row}) =>(<span>{row.total_rating / row.num_ratings}</span>)
 }, {

@@ -119,7 +119,7 @@ class RoomPage extends Component {
 
       return (
          <div>
-            <h2>Room Rating: </h2>
+            <h1>Room Rating: </h1>
             
             <ul>
                { filter_room.map((room, i) => (
@@ -132,17 +132,18 @@ class RoomPage extends Component {
                   </li>
                )) }
             </ul>
+            
             <h1>Room:</h1>
 
             <ul>
                { filter_room.map((room, i) => (
                   <div key={i}>
                      <li>Name: {room.name}</li>
-                     <li>Average Rating: {room.total_rating / room.num_ratings}</li>
+                     <li>Average Rating (1-5): {room.total_rating / room.num_ratings}</li>
                      <li>Time Available: {room.time_available_minutes} minutes</li>
                      <li>Players: {room.min_players} - {room.max_players} players</li>
                      <li>Completion Percentage: {room.reported_completion_percentage} percent</li>
-                     <li>Difficulty: {room.reported_difficulty}</li>
+                     <li>Difficulty (1-5): {room.reported_difficulty}</li>
                      <li>Price: {room.price} dollars</li>
                      <li>Room Information: <Link target="_blank" to={{ pathname: room.room_URL}}>{room.room_URL}</Link></li>
                      <li>Notes: {room.notes}</li>
@@ -151,7 +152,6 @@ class RoomPage extends Component {
                )) }
             </ul>
             <h1>Location:</h1>
-            <span>{location_id}</span>
             <ul>
                { filter_location.map((roomloc, i) => (
                   <div key={i}>
