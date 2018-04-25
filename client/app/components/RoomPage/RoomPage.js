@@ -123,14 +123,14 @@ class RoomPage extends Component {
             <ul>
                { filter_room.map((room, i) => (
                   <div key={i}>
-                     <h1>Name: {room.name}</h1>
+                     <h1>Escape Room: {room.name}</h1>
                      <li><strong>Average Rating (1-5):</strong> {room.total_rating / room.num_ratings}</li>
-                     <li><strong>Time Available:</strong> {room.time_available_minutes} minutes</li>
-                     <li><strong>Players:</strong> {room.min_players} - {room.max_players} players</li>
-                     <li><strong>Completion Percentage:</strong> {room.reported_completion_percentage} percent</li>
+                     <li><strong>Time Limit:</strong> {room.time_available_minutes} minutes</li>
+                     <li><strong>Player Count:</strong> {room.min_players} - {room.max_players} players</li>
+                     <li><strong>Escape Rate:</strong> {room.reported_completion_percentage} percent</li>
                      <li><strong>Difficulty (1-5):</strong> {room.reported_difficulty}</li>
                      <li><strong>Price:</strong> {room.price} dollars</li>
-                     <li><strong>Room Information:</strong> <Link target="_blank" to={{ pathname: room.room_URL}}>{room.room_URL}</Link></li>
+                     <li><strong>More Information:</strong> <Link target="_blank" to={{ pathname: room.room_URL}}>{room.room_URL}</Link></li>
                   </div>
                )) }
             </ul>

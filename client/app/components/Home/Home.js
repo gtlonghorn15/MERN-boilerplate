@@ -12,22 +12,23 @@ const limitLength = (str, length) => str.substring(0, length);
 const columns_room = [{
    Header: 'Escape Room Name',
    accessor: 'name',
-   Cell: ({row}) => (<Link target="_blank" to={{ pathname: '/roompage/' + row._id}}>{row.name}</Link>)
+   Cell: ({row}) => (<Link target="_blank" to={{ pathname: '/roompage/' + row._id}}>{row.name}</Link>),
+   minWidth: 180
 }, {
    Header: 'Room ID',
    accessor: '_id',
    show: false
 }, {
-   Header: 'Number of minutes',
+   Header: 'Time Limit',
    accessor: 'time_available_minutes'
-}, {
-   Header: 'Max Players',
-   accessor: 'max_players'
 }, {
    Header: 'Min Players',
    accessor: 'min_players'
 }, {
-   Header: 'Completion Percentage (%)',
+   Header: 'Max Players',
+   accessor: 'max_players'
+}, {
+   Header: 'Escape Rate (%)',
    accessor: 'reported_completion_percentage'
 }, {
    Header: 'Difficulty (1-5)',
@@ -44,9 +45,9 @@ const columns_room = [{
    accessor: 'total_rating',
    show: false
 }, {
-   Header: 'Average Rating (1-5)',
+   Header: 'Avg Rating (1-5)',
    accessor: 'total_rating',
-   Cell: ({row}) =>(<span>{row.total_rating / row.num_ratings}</span>)
+   Cell: ({row}) =>(<span>{Math.round(row.total_rating / row.num_ratings)}</span>)
 }, {
    Header: 'Room URL',
    accessor: 'room_URL',
@@ -140,6 +141,7 @@ class RoomViewer extends Component {
                data={this.state.rooms}
                columns={columns_room}
                pageSize={this.state.rooms.length}
+               sorted={[{id:'name',desc:false}]}
             />
          </div>
       );
