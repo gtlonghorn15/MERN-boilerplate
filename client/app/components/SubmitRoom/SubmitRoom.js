@@ -128,14 +128,6 @@ class SubmitRoom extends Component {
          <div>
             <h1>Submit Room:</h1>
 
-            <ul>
-               { this.state.rooms.map((room, i) => (
-                  <li key={i}>
-                     <span>{room.name} </span>
-                     <button onClick={() => this.deleteRoom(i)}>x</button>
-                  </li>
-               )) }
-            </ul>
             <form target="_blank" method="post" action="/api/rooms">
                <p>Room Name: <input type="text" name="name" /></p>
                <p>Location Name: <select name="location_id">
@@ -156,14 +148,7 @@ class SubmitRoom extends Component {
             </form>
             
             <h1>Submit Room Location:</h1>
-            <ul>
-               { this.state.roomlocations.map((roomlocation, i) => (
-                  <li key={i}>
-                     <span>{roomlocation.name} </span>
-                     <button onClick={() => this.deleteRoomLocation(i)}>x</button>
-                  </li>
-               )) }
-            </ul>
+
             <form target="_blank" method="post" action="/api/roomlocations">
                <p>Location Name: <input type="text" name="name" /></p>
                <p>Website: <input type="text" name="website" /></p>

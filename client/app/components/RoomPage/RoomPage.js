@@ -119,48 +119,46 @@ class RoomPage extends Component {
 
       return (
          <div>
-            <h1>Room Rating: </h1>
-            
-            <ul>
-               { filter_room.map((room, i) => (
-                  <li key={i}>
-                     <button onClick={() => this.incrementRating(i, 1)}>1</button>
-                     <button onClick={() => this.incrementRating(i, 2)}>2</button>
-                     <button onClick={() => this.incrementRating(i, 3)}>3</button>
-                     <button onClick={() => this.incrementRating(i, 4)}>4</button>
-                     <button onClick={() => this.incrementRating(i, 5)}>5</button>
-                  </li>
-               )) }
-            </ul>
-            
-            <h1>Room:</h1>
 
             <ul>
                { filter_room.map((room, i) => (
                   <div key={i}>
-                     <li>Name: {room.name}</li>
-                     <li>Average Rating (1-5): {room.total_rating / room.num_ratings}</li>
-                     <li>Time Available: {room.time_available_minutes} minutes</li>
-                     <li>Players: {room.min_players} - {room.max_players} players</li>
-                     <li>Completion Percentage: {room.reported_completion_percentage} percent</li>
-                     <li>Difficulty (1-5): {room.reported_difficulty}</li>
-                     <li>Price: {room.price} dollars</li>
-                     <li>Room Information: <Link target="_blank" to={{ pathname: room.room_URL}}>{room.room_URL}</Link></li>
-                     <li>Notes: {room.notes}</li>
-                     <img src={room.image_URL} alt="Room Header Image"/>
+                     <h1>Name:</strong> {room.name}</h1>
+                     <li><strong>Average Rating (1-5):</strong> {room.total_rating / room.num_ratings}</li>
+                     <li><strong>Time Available:</strong> {room.time_available_minutes} minutes</li>
+                     <li><strong>Players:</strong> {room.min_players} - {room.max_players} players</li>
+                     <li><strong>Completion Percentage:</strong> {room.reported_completion_percentage} percent</li>
+                     <li><strong>Difficulty (1-5):</strong> {room.reported_difficulty}</li>
+                     <li><strong>Price:</strong> {room.price} dollars</li>
+                     <li><strong>Room Information:</strong> <Link target="_blank" to={{ pathname: room.room_URL}}>{room.room_URL}</Link></li>
                   </div>
                )) }
             </ul>
+            
+            <h1>Room Rating: </h1>
+               
+               <ul>
+                  { filter_room.map((room, i) => (
+                     <li key={i}>
+                        <button onClick={() => this.incrementRating(i, 1)}>1</button>
+                        <button onClick={() => this.incrementRating(i, 2)}>2</button>
+                        <button onClick={() => this.incrementRating(i, 3)}>3</button>
+                        <button onClick={() => this.incrementRating(i, 4)}>4</button>
+                        <button onClick={() => this.incrementRating(i, 5)}>5</button>
+                     </li>
+                  )) }
+               </ul>
+            
             <h1>Location:</h1>
             <ul>
                { filter_location.map((roomloc, i) => (
                   <div key={i}>
-                     <li>Name: {roomloc.name}</li>
-                     <li>Website: <Link target="_blank" to={{ pathname: roomloc.website}}>{roomloc.website}</Link></li>
-                     <li>Booking URL: <Link target="_blank" to={{ pathname: roomloc.booking_URL}}>{roomloc.booking_URL}</Link></li>
-                     <li>Address: {roomloc.address}</li>
-                     <li>Telephone: {roomloc.tel}</li>
-                     <li>Email: {roomloc.email}</li>
+                     <li><strong>Name:</strong> {roomloc.name}</li>
+                     <li><strong>Website:</strong> <Link target="_blank" to={{ pathname: roomloc.website}}>{roomloc.website}</Link></li>
+                     <li><strong>Booking URL:</strong> <Link target="_blank" to={{ pathname: roomloc.booking_URL}}>{roomloc.booking_URL}</Link></li>
+                     <li><strong>Address:</strong> {roomloc.address}</li>
+                     <li><strong>Telephone:</strong> {roomloc.tel}</li>
+                     <li><strong>Email:</strong> {roomloc.email}</li>
                   </div>
                )) }
             </ul>
