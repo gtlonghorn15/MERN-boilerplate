@@ -14,12 +14,6 @@ const columns_room = [{
    accessor: 'name',
    Cell: ({row}) => (<Link target="_blank" to={{ pathname: '/roompage/' + row._id}}>{row.name}</Link>)
 }, {
-   Header: 'Location ID',
-   accessor: 'location_id'
-}, {
-   Header: 'Room ID',
-   accessor: '_id'
-}, {
    Header: 'Number of minutes',
    accessor: 'time_available_minutes'
 }, {
@@ -29,14 +23,24 @@ const columns_room = [{
    Header: 'Min Players',
    accessor: 'min_players'
 }, {
-   Header: 'Completion Percentage',
+   Header: 'Completion Percentage (%)',
    accessor: 'reported_completion_percentage'
 }, {
-   Header: 'Difficulty',
+   Header: 'Difficulty (1-5)',
    accessor: 'reported_difficulty'
 }, {
-   Header: 'Price',
+   Header: 'Price ($)',
    accessor: 'price'
+}, {
+   Header: 'Number of Ratings',
+   accessor: 'num_ratings'
+}, {
+   Header: 'Total Rating',
+   accessor: 'total_rating'
+}, {
+   Header: 'Average Rating (1-5)',
+   accessor: 'total_rating',
+   Cell: ({row}) =>(<span>{row.total_rating / row.num_ratings}</span>)
 }, {
    Header: 'Room URL',
    accessor: 'room_URL',
@@ -44,15 +48,6 @@ const columns_room = [{
 }, {
    Header: 'Image URL',
    accessor: 'image_URL'
-}, {
-   Header: 'Notes',
-   accessor: 'notes'
-}, {
-   Header: 'Number of Ratings',
-   accessor: 'num_ratings'
-}, {
-   Header: 'Total Rating',
-   accessor: 'total_rating'
 }]
 
 class RoomViewer extends Component {
@@ -139,34 +134,6 @@ class RoomViewer extends Component {
                columns={columns_room}
                pageSize={this.state.rooms.length}
             />
-            <p>Rooms:</p>
-
-            <ul>
-               { this.state.rooms.map((room, i) => (
-                  <li key={i}>
-                     <span>{room.name} </span>
-                     <button onClick={() => this.deleteRoom(i)}>x</button>
-                  </li>
-               )) }
-            </ul>
-            <form target="_blank" method="post" action="/api/rooms">
-               <p>Room Name: <input type="text" name="name" /></p>
-               <p>Location Name: <select name="location_id">
-                  { this.state.roomlocations.map((roomlocation, i) => (
-                     <option key={i} value={roomlocation._id}>{roomlocation.name}</option>
-                  )) }
-               </select></p>
-               <p>Time Available: <input type="number" name="time_available_minutes" /></p>
-               <p>Max Players: <input type="number" name="max_players" /></p>
-               <p>Min Players: <input type="number" name="min_players" /></p>
-               <p>Completion Percentage: <input type="number" name="reported_completion_percentage" /></p>
-               <p>Difficulty: <input type="number" name="reported_difficulty" /></p>
-               <p>Price: <input type="number" name="price" /></p>
-               <p>Room URL: <input type="text" name="room_URL" /></p>
-               <p>Image URL: <input type="text" name="image_URL" /></p>
-               <p>Notes: <input type="text" name="notes" /></p>
-               <input type="submit" />
-            </form>
          </div>
       );
    }

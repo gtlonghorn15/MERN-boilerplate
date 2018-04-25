@@ -7,7 +7,7 @@ const Header = () => (
       <table>
          <tr>
             <td>
-               <Link to="/">Rate Your Escape</Link>
+               <Link to="/roomviewer">Rate Your Escape</Link>
             </td>
             <td>
                <Link to="/submitroom">Submit Room</Link>
