@@ -123,7 +123,7 @@ class RoomPage extends Component {
             <ul>
                { filter_room.map((room, i) => (
                   <div key={i}>
-                     <h1>Name:</strong> {room.name}</h1>
+                     <h1>Name: {room.name}</h1>
                      <li><strong>Average Rating (1-5):</strong> {room.total_rating / room.num_ratings}</li>
                      <li><strong>Time Available:</strong> {room.time_available_minutes} minutes</li>
                      <li><strong>Players:</strong> {room.min_players} - {room.max_players} players</li>
@@ -153,7 +153,7 @@ class RoomPage extends Component {
             <ul>
                { filter_location.map((roomloc, i) => (
                   <div key={i}>
-                     <li><strong>Name: {roomloc.name}</li>
+                     <li><strong>Name:</strong> {roomloc.name}</li>
                      <li><strong>Website:</strong> <Link target="_blank" to={{ pathname: roomloc.website}}>{roomloc.website}</Link></li>
                      <li><strong>Booking URL:</strong> <Link target="_blank" to={{ pathname: roomloc.booking_URL}}>{roomloc.booking_URL}</Link></li>
                      <li><strong>Address:</strong> {roomloc.address}</li>
