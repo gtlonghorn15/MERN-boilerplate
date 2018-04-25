@@ -37,7 +37,7 @@ render((
             <Route path="/roomviewer" component={RoomViewer}/>
             <Route path="/roomlocationviewer" component={RoomLocationViewer}/>
             <Route path="/roompage/:id" component={RoomPage}/>
-            <Route path="/submitroom" component={SubmitRoom)/>
+            <Route path="/submitroom" component={SubmitRoom}/>
             <Route component={NotFound}/>
          </Switch>
       </App>
