@@ -124,7 +124,7 @@ class RoomPage extends Component {
                { filter_room.map((room, i) => (
                   <div key={i}>
                      <h1>Escape Room: {room.name}</h1>
-                     <li><strong>Average Rating (1-5):</strong> {room.total_rating / room.num_ratings}</li>
+                     <li><strong>Average Rating (1-5):</strong> {Math.round(room.total_rating / room.num_ratings)}</li>
                      <li><strong>Time Limit:</strong> {room.time_available_minutes} minutes</li>
                      <li><strong>Player Count:</strong> {room.min_players} - {room.max_players} players</li>
                      <li><strong>Escape Rate:</strong> {room.reported_completion_percentage} percent</li>
